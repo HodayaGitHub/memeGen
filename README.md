@@ -1,2 +1,2 @@
 # memeGen
-memes generator
+memes Generator
