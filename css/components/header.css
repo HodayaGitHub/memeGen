@@ -16,8 +16,10 @@ body {
 }
 
 
-.logo {
+.logo a {
     /* font-family: eurofurence; */
+    color: black;
+    text-decoration: none;
 }
 
 .header-container {
@@ -25,12 +27,6 @@ body {
 
 
 }
-
-.mobile-toggle-menu {
-    display: flex;
-    font-size: 2rem;
-}
-
 
 .main-header>.nav-container * {
     /* min-height: var(--header-height);  */
@@ -41,12 +37,15 @@ body {
     gap: 10%;
     align-items: flex-end;
 
+    font-size: 2rem;
+
     /* flex-direction: column; */
 }
 
 .main-header {
     justify-content: space-around;
-    max-height: 120px;
+    /* max-height: 120px; */
+    height: 90px;
 }
 
 .main-navbar {

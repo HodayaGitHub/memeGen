@@ -20,3 +20,7 @@
 .flex {
     display: flex;
 }
+
+.clean-text {
+    text-decoration: none;
+}
