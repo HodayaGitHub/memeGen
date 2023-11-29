@@ -3,3 +3,11 @@
     font-family: eurofurence;
     src: url(../../fonts/eurofurence/eurof55.ttf);
   }
+
+/* impact */
+@font-face {
+  font-family: impact;
+  src: url(../../fonts/impact/impact.ttf);
+}
+
+  

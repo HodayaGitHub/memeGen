@@ -6,3 +6,7 @@
 .meme-editor button {
   padding: 10px;
 }
+
+.text-insert {
+  max-width: 520px;
+}
