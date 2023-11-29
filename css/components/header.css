@@ -11,22 +11,44 @@ body {
 }
 
 
-.main-layout {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 .main-header {
     background-color: #6aa7cf73;
 }
 
-.clean-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
+.logo {
+    font-family: eurofurence;
 }
 
-.inactive {
-    display: none;
+.header-container {
+    justify-content: space-between;
+
 }
 
+.mobile-toggle-menu {
+    display: flex;
+    font-size: 2rem;
+}
+
+
+.main-header > .nav-container * {
+    /* min-height: var(--header-height);  */
+
+    left: 0px;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.main-header {
+    justify-content: space-around;
+}
+
+.main-navbar {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.main-header .main-nav-list a {
+    text-decoration: none;
+    color: black;
+}

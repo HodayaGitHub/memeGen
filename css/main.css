@@ -1,2 +1,17 @@
+/* fonts */
+@import url("./setup/typography.css");
+
+/* helpers */
+@import url("./basics/helpers.css");
+
+/* variables */
+@import url("./setup/variables.css");
+
+/* layout */
+@import url("./basics/layout.css");
+
 /* components */
 @import url("./components/header.css");
+
+
+
