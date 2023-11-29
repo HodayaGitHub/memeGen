@@ -58,3 +58,63 @@ body {
     text-decoration: none;
     color: black;
 }
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: eurofurence;
+    background-color: #e3e3e3;
+    height: 100vh;
+}
+
+
+.main-header {
+    background-color: #6aa7cf73;
+}
+
+
+.logo {
+    /* font-family: eurofurence; */
+}
+
+.header-container {
+    justify-content: space-between;
+
+}
+
+.mobile-toggle-menu {
+    display: flex;
+    font-size: 2rem;
+}
+
+
+.main-header > .nav-container * {
+    /* min-height: var(--header-height);  */
+
+    left: 0px;
+    /* display: flex; */
+    /* align-items: center; */
+    gap: 10%;
+    align-items: flex-end;
+
+    /* flex-direction: column; */
+}
+
+.main-header {
+    justify-content: space-around;
+}
+
+.main-navbar {
+    flex-direction: row;
+    gap: 10px;
+    
+
+}
+
+.main-header .main-nav-list a {
+    text-decoration: none;
+    color: black;
+}

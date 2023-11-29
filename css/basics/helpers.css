@@ -20,3 +20,25 @@
 .flex {
     display: flex;
 }
+.clean-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.inactive {
+    display: none;
+}
+
+.grid {
+    display: grid;
+
+}
+
+.grid-col {
+    grid-auto-flow: column;
+}
+
+.flex {
+    display: flex;
+}
