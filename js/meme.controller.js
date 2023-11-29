@@ -45,19 +45,32 @@ function addEventListeners() {
   $('.grid-item img').click(function () {
     renderImageOnCanvas(this)
   })
+
+  $('.image-upload-btn').on("change", function (event) {
+    onUploadImg(event)
+  })
 }
 
 
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
   $('.canvas-container').show()
-  // const elImgSrc = clickedImg.currentSrc
   onSelectImg(clickedImg)
+}
+
+function onUploadImg(event) {
+  const file = event.target.files[0]
+  let img = new Image()
+  img.onload = function () {
+    renderImageOnCanvas(img)
+  }
+  img.src = URL.createObjectURL(file)
 }
 
 
 
 function onSelectImg(image) {
-    gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height)
+  gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height)
 
 }
+

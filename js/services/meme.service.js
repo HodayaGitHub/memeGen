@@ -13,7 +13,7 @@ function _createImg(id, imgUrl, imgAlt) {
 
 
 function _createImages() {
-    const numbersArray = Array.from({ length: 18 }, (_, index) => index)
+    const numbersArray = Array.from({ length: 19 }, (_, index) => index)
 
     gImages = numbersArray.map((index) => {
         var id = `${index + 1}`

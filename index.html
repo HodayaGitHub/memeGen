@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css" />
+    <script src="https://kit.fontawesome.com/3f5b335a26.js" crossorigin="anonymous"></script>
     <title>Memes Generator</title>
 
 </head>
@@ -38,11 +39,12 @@
         <div class="images-container">
 
 
-            
-    <div class="upload-img">
-        <label for="imageUpload" data-trans="imgUpload">upload</label>
-        
-    </div>
+
+            <div class="upload-img">
+                <!-- <label class="imageUpload" data-trans="imgUpload">upload</label> -->
+                <input type="file" id="imageInput" class="image-upload-btn" data-trans="imgUpload" accept="image/*">
+
+            </div>
 
         </div>
     </main>
@@ -54,17 +56,26 @@
             <canvas class="canvas" height="550px" width="550px"
                 style="cursor: crosshair; letter-spacing: 2px; border: 2px solid #000;">
             </canvas>
+
+
+            <div class="meme-editor ">
+                <input type="text" placeholder="Add your meme text">
+                <button class="arrows-btn fa-solid fa-arrow-down"></button>
+                <button class="arrows-btn fa-solid fa-arrow-up"></button>
+                <button class="plus-btn fa-solid fa-plus"></button>
+                <button class="trash-btn fa-solid fa-trash"></button>
+            </div>
         </div>
     </main>
 
 
-    <footer style="background-color: rgb(138, 117, 121);">
+    <footer  class="main-layout full">
         copyrights
     </footer>
 
 
 
-    
+
     <script src="lib/jquery/jquery.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
