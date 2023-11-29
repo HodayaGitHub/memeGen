@@ -22,7 +22,7 @@ body {
 
 .header-container {
     justify-content: space-between;
-    
+
 
 }
 
@@ -32,7 +32,7 @@ body {
 }
 
 
-.main-header > .nav-container * {
+.main-header>.nav-container * {
     /* min-height: var(--header-height);  */
 
     left: 0px;
@@ -52,7 +52,7 @@ body {
 .main-navbar {
     flex-direction: row;
     gap: 10px;
-    
+
 
 }
 

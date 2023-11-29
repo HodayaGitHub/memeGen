@@ -11,6 +11,8 @@
 
 <body class="main-layout">
 
+
+
     <header class="main-header main-layout full">
         <div class="nav-container flex">
             <div class="logo">Memes Gen</div>
@@ -20,34 +22,53 @@
                     <a href="#" data-trans="memes">Memes</a>
                     <a href="#" data-trans="about">About</a>
                 </ul>
-                
+
             </nav>
             <select class="lang-btn">
                 <option value="en">English</option>
                 <option value="he">עברית</option>
             </select>
-                <button class="mobile-toggle-menu inactive">☰</button>
-            </div>
+            <button class="mobile-toggle-menu inactive">☰</button>
+        </div>
 
     </header>
 
     <main class="main-layout main-layout-container">
 
         <div class="images-container">
-        <div class="upload-img"> upload an image</div>            
+
+
+            
+    <div class="upload-img">
+        <label for="imageUpload" data-trans="imgUpload">upload</label>
+        
+    </div>
+
         </div>
     </main>
 
-<footer style="background-color: rgb(138, 117, 121);">
-
-    copyrights
-</footer>
 
 
+    <main>
+        <div class="canvas-container">
+            <canvas class="canvas" height="550px" width="550px"
+                style="cursor: crosshair; letter-spacing: 2px; border: 2px solid #000;">
+            </canvas>
+        </div>
+    </main>
 
-<script src="lib/jquery/jquery.js"></script>
-<script src="js/services/meme.service.js"></script>
-<script src="js/meme.controller.js"></script>
+
+    <footer style="background-color: rgb(138, 117, 121);">
+        copyrights
+    </footer>
+
+
+
+    
+    <script src="lib/jquery/jquery.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
 </body>
 
 </html>
