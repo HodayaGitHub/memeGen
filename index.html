@@ -20,15 +20,20 @@
                     <a href="#" data-trans="memes">Memes</a>
                     <a href="#" data-trans="about">About</a>
                 </ul>
-                <button class="mobile-toggle-menu inactive">☰</button>
+                
             </nav>
-    
+            <select class="lang-btn">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
+                <button class="mobile-toggle-menu inactive">☰</button>
             </div>
+
     </header>
 
     <main class="main-layout-container" style="background-color: pink;">
 
-        mime section
+        <div class="image-container"></div>
     </main>
 
 <footer style="background-color: rgb(138, 117, 121);">
@@ -41,8 +46,9 @@
 
 
 
-
-
+<script src="lib/jquery/jquery.js"></script>
+<script src="js/services/meme.service.js"></script>
+<script src="js/meme.controller.js"></script>
 </body>
 
 </html>

@@ -5,7 +5,7 @@
 body {
     margin: 0;
     height: 100vh;
-    font-family: mont, serif;
+    font-family: eurofurence;
     background-color: #e3e3e3;
     height: 100vh;
 }
@@ -17,7 +17,7 @@ body {
 
 
 .logo {
-    font-family: eurofurence;
+    /* font-family: eurofurence; */
 }
 
 .header-container {
@@ -36,6 +36,10 @@ body {
 
     left: 0px;
     /* display: flex; */
+    /* align-items: center; */
+    gap: 10%;
+    align-items: flex-end;
+
     /* flex-direction: column; */
 }
 
@@ -46,6 +50,8 @@ body {
 .main-navbar {
     flex-direction: row;
     gap: 10px;
+    
+
 }
 
 .main-header .main-nav-list a {
