@@ -108,10 +108,13 @@ function onAddNewLine() {
   const txtValue = $('.text-insert').val()
 
   if (txtValue) {
-    // TODO: to add here a tooltip.
-    // `There's no lines --->  
-    //  to add here a tooltip.
-    addNewLine(txtValue, gCenter.x, gCenter.y)
+    let maxY = gCanvasFontSize * -1;
+    gMeme.lines.forEach(line => {
+      if (line.y > maxY) {
+        maxY = line.y;
+      }
+    })
+    addNewLine(txtValue, gCenter.x, maxY + gCanvasFontSize)
     $('.text-insert').val('')
     renderCanvasWithContent();
   }
@@ -138,13 +141,9 @@ function renderCanvasWithContent() {
 }
 
 function renderLineOnCanvas(line) {
-  canvasTextProperties();
+  canvasTextProperties()
+  const { text, x, y } = line
 
-  // Destructure line object
-  const { text, x, y } = line;
-
-  // Call the wrapTextWithTextBox function 
-  // with the provided parameters
   wrapText(gCtx, text, x, y, gCanvas.width, gCanvasFontSize)
 
   // console.log(gCanvas.width + 'width')
