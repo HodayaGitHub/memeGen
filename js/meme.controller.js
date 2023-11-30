@@ -5,13 +5,13 @@ let gCtx
 let gSelecedImg = null
 let gTextContent
 let gElCanvas
-
+let gAddInitialTxt = false
 // onload
 $(onInit)
 
 
 function onInit() {
-  gElCanvas =  $('canvas')
+  gElCanvas = $('canvas')
   // console.log('test for jquery')
   renderImages()
   addEventListeners()
@@ -55,43 +55,49 @@ function addEventListeners() {
   })
 
   $('.text-insert').on("input", function () {
-    renderCanvas()
+    renderCanvasWithContent()
     onAddText()
   })
 
- $('.plus-btn').on("click", onAddNewLine)
-  $('.trash-btn').on("click", renderCanvas)
+  $('.plus-btn').on("click", onAddNewLine)
+  $('.trash-btn').on("click", renderEmptyCanvas)
 
 }
-
 
 function onAddNewLine() {
-  addNewLine(gTextContent)
+  // prevent from user to press when there's no 
+  // lines otherwise it will print undifined
 
-  $('.text-insert').val('') 
-  // addNewLine()
-  textProperties()
+  if (gAddInitialTxt) {
+    addNewLine(gTextContent)
+  }
+  // TODO: to add here a tooltip.
+  // need to fix the error that appears on console
+  if (!gTextContent || gMeme.lines.length === 0) {
+    console.log(`There's no lines --->  
+    to add here a tooltip.
+    need to fix the error that appears on console`)
+    return
+  }
+  console.log('below return')
+  
+
+  clearInput()
   gTextContent = $('.text-insert').val
-  // gTextContent = ev.target.value
-// renderCanvas()
 }
-
-// function line() {
-//   addNewLine(gTextContent)
-// }
 
 
 function resizeCanvas() {
-    const elCanvasContainer = $('.canvas-container')
-    // Changing the canvas dimension clears the canvas
-    // console.log(elCanvasContainer.clientWidth);
-    gElCanvas.width = elCanvasContainer.clientWidth - 2
+  const elCanvasContainer = $('.canvas-container')
+  // Changing the canvas dimension clears the canvas
+  // console.log(elCanvasContainer.clientWidth);
+  gElCanvas.width = elCanvasContainer.clientWidth - 2
 }
-
 
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
   $('.canvas-container').show()
+
 
   gSelecedImg = clickedImg
   onSelectImg(clickedImg)
@@ -114,26 +120,16 @@ function onSelectImg(image) {
 
 function onAddText(ev) {
   gTextContent = $('.text-insert').val()
-  textProperties()
-  // gCtx.font = "5rem impact bold"
-  // gCtx.fillStyle = "white"
-  // gCtx.strokeStyle = "black"
-  // gCtx.lineWidth = 2
-  // gCtx.textAlign = "center"
-
-  // const lineHeight = 80
-  // wrappedText(lineHeight)
-
-  // gCtx.fillText(textContent, gCanvas.width / 2, gCanvas.height / 2, gCanvas.width)
-  // gCtx.strokeText(gTextContent, gCanvas.width / 2, gCanvas.height / 2, gCanvas.width)
-  // console.log(gMeme)
-  
-  // addNewLine(gTextContent)
+  canvasTextProperties()
+  gAddInitialTxt = true
 }
 
-function renderCanvas() {
-  gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
-  if (gSelecedImg) {
-    renderImageOnCanvas(gSelecedImg)
-  }
+function renderCanvasWithContent() {
+  renderEmptyCanvas()
+
+  gMeme.lines.forEach((line, index) => {
+    gCtx.fillText(line, gCanvas.width / 2, index * 80 + 80, gCanvas.width)
+    gCtx.strokeText(line, gCanvas.width / 2, index * 80 + 80, gCanvas.width)
+  })
+
 }
