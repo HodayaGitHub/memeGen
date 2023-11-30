@@ -1,5 +1,11 @@
 :root {
 
+       /* layout  */
+    --card-layout-margin: 80px;
+    --card-layout-margin-center: 60px;
+
     --xl: 1200px;
+    --m: 800px;
+    --s: 600px;
 
 }
