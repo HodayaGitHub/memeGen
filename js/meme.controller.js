@@ -3,7 +3,7 @@
 let gCanvas
 let gCtx
 let gSelecedImg = null
-let gTextContent = ''
+let gTextContent
 let gElCanvas
 
 // onload
@@ -54,9 +54,9 @@ function addEventListeners() {
     onUploadImg(event)
   })
 
-  $('.text-insert').on("input", function (event) {
+  $('.text-insert').on("input", function () {
     renderCanvas()
-    onAddText(event)
+    onAddText()
   })
 
  $('.plus-btn').on("click", onAddNewLine)
@@ -67,9 +67,17 @@ function addEventListeners() {
 
 function onAddNewLine() {
   $('.text-insert').val('') 
-
+  // addNewLine()
+  textProperties()
+  gTextContent = $('.text-insert').val
   // gTextContent = ev.target.value
+// renderCanvas()
+addNewLine(gTextContent)
 
+}
+
+function line() {
+  addNewLine(gTextContent)
 }
 
 
@@ -98,28 +106,29 @@ function onUploadImg(event) {
   img.src = URL.createObjectURL(file)
 }
 
-
-
 function onSelectImg(image) {
   gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height)
 }
 
 
+
 function onAddText(ev) {
-  gTextContent = ev.target.value
+  gTextContent = $('.text-insert').val()
+  textProperties()
+  // gCtx.font = "5rem impact bold"
+  // gCtx.fillStyle = "white"
+  // gCtx.strokeStyle = "black"
+  // gCtx.lineWidth = 2
+  // gCtx.textAlign = "center"
 
-  gCtx.font = "5rem impact bold"
-  gCtx.fillStyle = "white"
-  gCtx.strokeStyle = "black"
-  gCtx.lineWidth = 2
-  gCtx.textAlign = "center"
-
-  const lineHeight = 80
-  wrappedText(lineHeight)
+  // const lineHeight = 80
+  // wrappedText(lineHeight)
 
   // gCtx.fillText(textContent, gCanvas.width / 2, gCanvas.height / 2, gCanvas.width)
   // gCtx.strokeText(gTextContent, gCanvas.width / 2, gCanvas.height / 2, gCanvas.width)
-
+  // console.log(gMeme)
+  
+  addNewLine(gTextContent)
 }
 
 function renderCanvas() {

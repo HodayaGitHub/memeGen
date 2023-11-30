@@ -39,7 +39,7 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
         }
     })
 
-    console.log(lineArray)
+    // console.log(lineArray)
     return lineArray
 }
 
