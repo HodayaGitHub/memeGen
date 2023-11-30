@@ -3,9 +3,9 @@
 let gCanvas
 let gCtx
 let gSelecedImg = null
-let gTextContent
 let gElCanvas
-let gAddInitialTxt = false
+let gCenter
+
 // onload
 $(onInit)
 
@@ -14,7 +14,7 @@ function onInit() {
   gElCanvas = $('canvas')
   // console.log('test for jquery')
   renderImages()
-  
+
   addEventListeners()
   addMouseListeners()
   addTouchListeners()
@@ -23,11 +23,12 @@ function onInit() {
   gCanvas = $('canvas')[0]
   gCtx = gCanvas.getContext('2d')
 
+  gCenter = { x: gCanvas.width / 2, y: gCanvas.height / 2 }
 
   resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
 
-  $('.meme-editor-layout').css('cursor','pointer')
+  $('.meme-editor-layout').css('cursor', 'pointer')
 }
 
 
@@ -60,37 +61,16 @@ function addEventListeners() {
   })
 
   $('.text-insert').on("input", function () {
-    renderCanvasWithContent()
     onAddText()
   })
 
   $('.plus-btn').on("click", onAddNewLine)
-  $('.trash-btn').on("click", renderEmptyCanvas)
+  $('.trash-btn').on("click", function () {
+    gMeme.lines = []
+    renderEmptyCanvas()
+  });
 
 }
-
-function onAddNewLine() {
-  // prevent from user to press when there's no 
-  // lines otherwise it will print undifined
-
-  if (gAddInitialTxt) {
-    addNewLine(gTextContent)
-  }
-  // TODO: to add here a tooltip.
-  // need to fix the error that appears on console
-  if (!gTextContent || gMeme.lines.length === 0) {
-    console.log(`There's no lines --->  
-    to add here a tooltip.
-    need to fix the error that appears on console`)
-    return
-  }
-  console.log('below return')
-  
-
-  clearInput()
-  gTextContent = $('.text-insert').val
-}
-
 
 function resizeCanvas() {
   const elCanvasContainer = $('.canvas-container')
@@ -122,19 +102,52 @@ function onSelectImg(image) {
 }
 
 
+function onAddNewLine() {
+  // prevent from user to press when there's no 
+  // lines otherwise it will print undifined
+  const txtValue = $('.text-insert').val()
+
+  if (txtValue) {
+    // TODO: to add here a tooltip.
+    // `There's no lines --->  
+    //  to add here a tooltip.
+    addNewLine(txtValue, gCenter.x, gCenter.y)
+    $('.text-insert').val('')
+    renderCanvasWithContent();
+  }
+}
 
 function onAddText(ev) {
-  gTextContent = $('.text-insert').val()
-  canvasTextProperties()
-  gAddInitialTxt = true
+  renderCanvasWithContent()
+  const line = {
+    text: $('.text-insert').val(),
+    x: gCenter.x,
+    y: gCenter.y
+  }
+
+  renderLineOnCanvas(line)
 }
 
 function renderCanvasWithContent() {
   renderEmptyCanvas()
 
-  gMeme.lines.forEach((line, index) => {
-    gCtx.fillText(line, gCanvas.width / 2, index * 80 + 80, gCanvas.width)
-    gCtx.strokeText(line, gCanvas.width / 2, index * 80 + 80, gCanvas.width)
+  gMeme.lines.forEach((line) => {
+    renderLineOnCanvas(line)
   })
 
 }
+
+function renderLineOnCanvas(line) {
+  canvasTextProperties();
+
+  // Destructure line object
+  const { text, x, y } = line;
+
+  // Call the wrapTextWithTextBox function 
+  // with the provided parameters
+  wrapText(gCtx, text, x, y, gCanvas.width, gCanvasFontSize)
+
+  // console.log(gCanvas.width + 'width')
+  // console.log(gCanvasFontSize + 'height')
+}
+
