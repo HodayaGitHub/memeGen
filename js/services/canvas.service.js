@@ -93,6 +93,3 @@ function splitWord(word, length) {
     }
     return splittedword
 }
-
-
-

@@ -1,8 +1,11 @@
 .canvas-container {
-display: flex;
-justify-content: center;
+    display: flex;
+    justify-content: center;
+    cursor: grab;
 }
 
-canvas {
-    border: 1px solid blue;
+.canvas-container:active {
+    cursor: grabbing;
 }
+canvas {}
+

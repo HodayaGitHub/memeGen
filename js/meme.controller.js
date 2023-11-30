@@ -14,7 +14,10 @@ function onInit() {
   gElCanvas = $('canvas')
   // console.log('test for jquery')
   renderImages()
+  
   addEventListeners()
+  addMouseListeners()
+  addTouchListeners()
   $('.canvas-container').hide()
 
   gCanvas = $('canvas')[0]
@@ -23,6 +26,8 @@ function onInit() {
 
   resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
+
+  $('.meme-editor-layout').css('cursor','pointer')
 }
 
 
