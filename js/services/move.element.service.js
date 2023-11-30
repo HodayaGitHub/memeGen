@@ -7,7 +7,7 @@ function addTouchMouseListeners() {
     // addTouchListeners()
     window.addEventListener('resize', () => {
         resizeCanvas()
-        renderCanvas()
+        renderCanvasWithContent()
     })
 }
 
@@ -36,30 +36,30 @@ function onUp() {
 
 function onMove(ev) {
     // const { isDrag } = getCircle()
-    if(!gLine) {
+    if (!getSelectedLine()) {
         return
     }
-    const isDrag = getLine().isDrag
+    const isDrag = getSelectedLine().isDrag
 
     if (!isDrag) return
     console.log('Moving the circle')
 
     const pos = getEventPos(ev)
-    console.log('pos event',pos )
+    console.log('pos event', pos)
     // Calc the delta, the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    console.log('dx dy' , dx, dy)
+    console.log('dx dy', dx, dy)
     moveLine(dx, dy)
     // Save the last pos, we remember where we`ve been and move accordingly
     gStartPos = pos
     // The canvas is render again after every move
-    renderCanvas()
+    renderCanvasWithContent()
 }
 
 
-function getLine() {
-    return gLine
+function getSelectedLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
 
 
@@ -78,26 +78,27 @@ function onDown(ev) {
 }
 
 function setLineDrag(isDrag) {
-    gLine.isDrag = isDrag
+    getSelectedLine().isDrag = isDrag
 }
 
 
-
-
-//Check if the click is inside the circle 
 function isLineClicked(clickedPos) {
-    if(!gLine) {
+    if (gMeme.lines.length === 0) {
         return
     }
-    // const x = gLine.x
-    // const y = gLine.y 
-    console.log('clickedpos',clickedPos )
-    console.log('gLine.x', gLine.x)
-    // Calc the distance between two dots
-    const distance = Math.sqrt((gLine.x - clickedPos.x) ** 2 + (gLine.y - clickedPos.y) ** 2)
-    console.log('distance', distance)
-    //If its smaller then the radius of the circle we are inside
-    return distance <= gLine.size
+    const clickedLineIdx = gMeme.lines.findIndex(line => {
+        // Calc the distance between two dots
+        const distance = Math.sqrt((line.x - clickedPos.x) ** 2 + (line.y - clickedPos.y) ** 2)
+        console.log('distance', distance)
+        return distance <= line.lineSize
+    })
+
+    if (clickedLineIdx >= 0) {
+        gMeme.selectedLineIdx = clickedLineIdx
+        return true
+    }
+
+    return false
 }
 
 
@@ -123,6 +124,28 @@ function getEventPos(ev) {
 
 // Move the circle in a delta, diff from the pervious pos
 function moveLine(dx, dy) {
-    gLine.x += dx
-    gLine.y += dy
+    getSelectedLine().x += dx
+    getSelectedLine().y += dy
+}
+
+
+
+function renderMovedLine() {
+    //Get the props we need from the circle
+    const { x, y, color, lineSize } = getSelectedLine()
+
+    //Draw the circle
+    drawArc(x, y, color, lineSize)
+}
+
+
+function drawArc(x, y, size, color) {
+    gCtx.beginPath()
+    // canvasTextProperties()
+    gCtx.lineWidth = '6'
+    gCtx.arc(x, y, size, 0, 2 * Math.PI)
+    gCtx.strokeStyle = 'white'
+    gCtx.stroke()
+    gCtx.fillStyle = color
+    gCtx.fill()
 }

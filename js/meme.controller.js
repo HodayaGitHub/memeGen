@@ -117,7 +117,7 @@ function onAddNewLine() {
     })
     addNewLine(txtValue, gCenter.x, maxY + gCanvasFontSize)
     $('.text-insert').val('')
-    renderCanvasWithContent();
+    renderCanvasWithContent()
   }
 }
 

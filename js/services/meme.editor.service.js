@@ -1,15 +1,12 @@
 'use strict'
 
-let gLine 
-
 let gMeme = {
     draggedLineIdx: -1,
-    lineSize: gCanvasFontSize, 
     lines: [
         // { text: 'line1', x: initialX, y: initialY },
 
     ],
-    selectedLineIdx: 0,
+    selectedLineIdx: undefined,
 }
 
 
@@ -19,19 +16,14 @@ function _saveMemsToStorage() {
 
 
 function addNewLine(text, x, y) {
-     gLine = {
+     const line = {
         text: text,
         x: x,
         y: y,
+        lineSize: gCanvasFontSize, 
+        color: '',
         isDrag: false,
     }
 
-    gMeme.lines.push(gLine)
+    gMeme.lines.push(line)
 }
-
-// changeLine()
-// function changeLine() {
-//     const lines = gMeme.lines
-//     console.log(lines)
-//   }
-
