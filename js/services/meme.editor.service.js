@@ -15,15 +15,23 @@ function _saveMemsToStorage() {
 }
 
 
-function addNewLine(text, x, y) {
-     const line = {
+function addNewLine(text, x, y, isTxtSave) {
+    const line = {
         text: text,
         x: x,
         y: y,
-        lineSize: gCanvasFontSize, 
+        lineSize: gCanvasFontSize,
         color: '',
         isDrag: false,
+        isTxtSave: isTxtSave,
     }
 
-    gMeme.lines.push(line)
+    const unsavedLineIdx = gMeme.lines.findIndex(currLine => currLine.isTxtSave === false)
+    if (!isTxtSave && unsavedLineIdx >= 0) {
+        line.x = gMeme.lines[unsavedLineIdx].x
+        line.y = gMeme.lines[unsavedLineIdx].y
+        gMeme.lines[unsavedLineIdx] = line
+    } else {
+        gMeme.lines.push(line)
+    }
 }

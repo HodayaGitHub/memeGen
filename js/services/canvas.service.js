@@ -22,13 +22,16 @@ function canvasTextProperties() {
 // function wrapText(context, text, x, y, maxWidth, lineHeight) {
 
 
-function wrapText(text, x, y, lineHeight) {
+function wrapText(text, x, y, lineHeight, shouldDrawBox) {
     let offsetY = 0
 
     let textToIterate = wrapWord(gCtx, text, x, y, gCanvas.width, lineHeight)
 
     textToIterate.forEach(function (item) {
-        drawTextBox(item[1], item[2] + offsetY, gCtx.measureText(item[0]).width, lineHeight)
+        if (shouldDrawBox) {
+            drawTextBox(item[1], item[2] + offsetY, gCtx.measureText(item[0]).width, lineHeight)
+        }
+        
         gCtx.fillText(item[0], item[1], item[2] + offsetY + lineHeight / 2)
         gCtx.strokeText(item[0], item[1], item[2] + offsetY + lineHeight / 2)
 
@@ -53,11 +56,15 @@ function wrapWord(ctx, text, x, y, maxWidth, lineHeight) {
 
     words.forEach((currentWord, n) => {
         if (currentWord.length > 12) {
-            // If the current word is longer than 12 characters, split it
             splitWord(currentWord, 12).forEach(partial => {
-                lineArray.push([line.trim(), x, y])
+
+                if (line.trim() !== '') {
+                    lineArray.push([line.trim(), x, y])
+                }
+
                 y += lineHeight
                 line = partial + ' '
+
             })
         } else {
             let testLine = line + currentWord + ' '
@@ -67,7 +74,6 @@ function wrapWord(ctx, text, x, y, maxWidth, lineHeight) {
             if (testWidth > maxWidth && n > 0) {
                 lineArray.push([line.trim(), x, y])
                 y += lineHeight
-                // console.log('y', y)
                 line = currentWord + ' '
             } else {
                 line += currentWord + ' '
@@ -84,10 +90,10 @@ function wrapWord(ctx, text, x, y, maxWidth, lineHeight) {
 }
 
 function splitWord(word, length) {
-    let splittedword = []
+    let splitWord = []
     for (let i = 0; i < word.length; i += length) {
-        splittedword.push(word.substr(i, length))
+        splitWord.push(word.substr(i, length))
     }
-    return splittedword
+    return splitWord
 }
 

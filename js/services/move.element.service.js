@@ -29,9 +29,7 @@ function addTouchListeners() {
     $(gElCanvas).on('touchend', onUp);
 }
 
-function onUp() {
-    console.log('onup')
-}
+
 
 
 function onMove(ev) {
@@ -62,8 +60,6 @@ function getSelectedLine() {
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 
-
-
 function onDown(ev) {
     // console.log('onDown')
     // Get the ev pos from mouse or touch
@@ -72,9 +68,14 @@ function onDown(ev) {
     if (!isLineClicked(pos)) return
 
     setLineDrag(true)
-    //Save the pos we start from
     gStartPos = pos
-    document.body.style.cursor = 'grabbing'
+}
+
+
+function onUp() {
+    setLineDrag(false)
+
+    
 }
 
 function setLineDrag(isDrag) {
@@ -90,7 +91,7 @@ function isLineClicked(clickedPos) {
         // Calc the distance between two dots
         const distance = Math.sqrt((line.x - clickedPos.x) ** 2 + (line.y - clickedPos.y) ** 2)
         console.log('distance', distance)
-        return distance <= line.lineSize
+        return distance <= line.lineSize /4  * (line.text.length || 1)  
     })
 
     if (clickedLineIdx >= 0) {
@@ -134,7 +135,7 @@ function renderMovedLine() {
     //Get the props we need from the circle
     const { x, y, color, lineSize } = getSelectedLine()
 
-    //Draw the circle
+    // draw line
     drawArc(x, y, color, lineSize)
 }
 
@@ -149,3 +150,6 @@ function drawArc(x, y, size, color) {
     gCtx.fillStyle = color
     gCtx.fill()
 }
+
+
+

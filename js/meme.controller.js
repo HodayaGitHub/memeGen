@@ -65,7 +65,7 @@ function addEventListeners() {
   })
 
   $('.plus-btn').on("click", onAddNewLine)
-  $('.switchLines').on("click")
+  $('.switch-lines').on("click", onChangeLineOrder)
   $('.trash-btn').on("click", function () {
     gMeme.lines = []
     renderEmptyCanvas()
@@ -109,45 +109,67 @@ function onAddNewLine() {
   const txtValue = $('.text-insert').val()
 
   if (txtValue) {
+    deleteTempIdx()
+
     let maxY = gCanvasFontSize * -1
     gMeme.lines.forEach(line => {
       if (line.y > maxY) {
-        maxY = line.y;
+        maxY = line.y
       }
     })
-    addNewLine(txtValue, gCenter.x, maxY + gCanvasFontSize)
+
+    addNewLine(txtValue, gCenter.x, maxY + gCanvasFontSize, true)
     $('.text-insert').val('')
     renderCanvasWithContent()
   }
 }
 
+function deleteTempIdx() {
+  let tempIdx = gMeme.lines.findIndex(line => !line.isTxtSave)
+  if (tempIdx >= 0) {
+    gMeme.lines.splice(tempIdx, 1)
+  }
+}
+
 function onAddText(ev) {
-  renderCanvasWithContent()
   const line = {
     text: $('.text-insert').val(),
     x: gCenter.x,
     y: gCenter.y
   }
 
-  renderLineOnCanvas(line)
+  addNewLine(line.text, line.x, line.y, false)
+  renderCanvasWithContent()
 }
 
 function renderCanvasWithContent() {
   renderEmptyCanvas()
 
-  gMeme.lines.forEach((line) => {
-    renderLineOnCanvas(line)
+  gMeme.lines.forEach((line, index) => {
+    renderLineOnCanvas(line, index)
   })
 
 }
 
-function renderLineOnCanvas(line) {
+function renderLineOnCanvas(line, index) {
   canvasTextProperties()
-  const { text, x, y } = line
+  const { text, x, y, isTxtSave } = line
 
-  wrapText(text, x, y, gCanvasFontSize)
+  const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx
+  wrapText(text, x, y, gCanvasFontSize, shouldDrawBox)
 
   // console.log(gCanvas.width + 'width')
   // console.log(gCanvasFontSize + 'height')
 }
 
+
+
+function onChangeLineOrder() {
+  // gMeme.selectedLineIdx 
+  if (gMeme.lines.length <= 1) {
+    return
+  }
+  gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length
+  renderCanvasWithContent()
+
+}
