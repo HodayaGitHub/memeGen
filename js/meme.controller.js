@@ -4,23 +4,26 @@ let gCanvas
 let gCtx
 let gSelecedImg = null
 let gTextContent = ''
+let gElCanvas
 
 // onload
 $(onInit)
 
 
-
 function onInit() {
-  console.log('test for jquery')
+  gElCanvas =  $('canvas')
+  // console.log('test for jquery')
   renderImages()
   addEventListeners()
   $('.canvas-container').hide()
 
   gCanvas = $('canvas')[0]
   gCtx = gCanvas.getContext('2d')
+
+
+  resizeCanvas()
+  window.addEventListener('resize', resizeCanvas)
 }
-
-
 
 
 function renderImages() {
@@ -56,9 +59,25 @@ function addEventListeners() {
     onAddText(event)
   })
 
-
+ $('.plus-btn').on("click", onAddNewLine)
   $('.trash-btn').on("click", renderCanvas)
 
+}
+
+
+function onAddNewLine() {
+  $('.text-insert').val('') 
+
+  // gTextContent = ev.target.value
+
+}
+
+
+function resizeCanvas() {
+    const elCanvasContainer = $('.canvas-container')
+    // Changing the canvas dimension clears the canvas
+    // console.log(elCanvasContainer.clientWidth);
+    gElCanvas.width = elCanvasContainer.clientWidth - 2
 }
 
 
