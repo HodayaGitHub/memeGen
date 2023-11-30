@@ -11,13 +11,13 @@ $(onInit)
 
 
 function onInit() {
-  gElCanvas = $('canvas')
+  gElCanvas = $('.canvas')
   // console.log('test for jquery')
   renderImages()
 
   addEventListeners()
-  addMouseListeners()
-  addTouchListeners()
+  addTouchMouseListeners()
+
   $('.canvas-container').hide()
 
   gCanvas = $('canvas')[0]
@@ -65,6 +65,7 @@ function addEventListeners() {
   })
 
   $('.plus-btn').on("click", onAddNewLine)
+  $('.switchLines').on("click")
   $('.trash-btn').on("click", function () {
     gMeme.lines = []
     renderEmptyCanvas()
@@ -72,12 +73,12 @@ function addEventListeners() {
 
 }
 
-function resizeCanvas() {
-  const elCanvasContainer = $('.canvas-container')
-  // Changing the canvas dimension clears the canvas
-  // console.log(elCanvasContainer.clientWidth);
-  gElCanvas.width = elCanvasContainer.clientWidth - 2
-}
+// function resizeCanvas() {
+//   const elCanvasContainer = $('.canvas-container')
+//   // Changing the canvas dimension clears the canvas
+//   // console.log(elCanvasContainer.clientWidth);
+//   gElCanvas.width = elCanvasContainer.clientWidth - 2
+// }
 
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
@@ -108,7 +109,7 @@ function onAddNewLine() {
   const txtValue = $('.text-insert').val()
 
   if (txtValue) {
-    let maxY = gCanvasFontSize * -1;
+    let maxY = gCanvasFontSize * -1
     gMeme.lines.forEach(line => {
       if (line.y > maxY) {
         maxY = line.y;
@@ -144,7 +145,7 @@ function renderLineOnCanvas(line) {
   canvasTextProperties()
   const { text, x, y } = line
 
-  wrapText(gCtx, text, x, y, gCanvas.width, gCanvasFontSize)
+  wrapText(text, x, y, gCanvasFontSize)
 
   // console.log(gCanvas.width + 'width')
   // console.log(gCanvasFontSize + 'height')
