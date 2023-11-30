@@ -66,19 +66,19 @@ function addEventListeners() {
 
 
 function onAddNewLine() {
+  addNewLine(gTextContent)
+
   $('.text-insert').val('') 
   // addNewLine()
   textProperties()
   gTextContent = $('.text-insert').val
   // gTextContent = ev.target.value
 // renderCanvas()
-addNewLine(gTextContent)
-
 }
 
-function line() {
-  addNewLine(gTextContent)
-}
+// function line() {
+//   addNewLine(gTextContent)
+// }
 
 
 function resizeCanvas() {
@@ -128,7 +128,7 @@ function onAddText(ev) {
   // gCtx.strokeText(gTextContent, gCanvas.width / 2, gCanvas.height / 2, gCanvas.width)
   // console.log(gMeme)
   
-  addNewLine(gTextContent)
+  // addNewLine(gTextContent)
 }
 
 function renderCanvas() {
