@@ -89,8 +89,6 @@ function onTrashBtn(){
 //   gElCanvas.width = elCanvasContainer.clientWidth - 2
 // }
 
-
-
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
   $('.canvas-container').show()
@@ -162,7 +160,7 @@ function renderCanvasWithContent() {
 }
 
 function renderLineOnCanvas(line, index) {
-  canvasTextProperties()
+  canvasTextProperties(line)
   const { text, x, y, isTxtSave } = line
 
   const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx

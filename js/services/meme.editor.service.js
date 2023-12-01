@@ -16,8 +16,13 @@ function addNewLine(text, x, y, isTxtSave) {
         text: text,
         x: x,
         y: y,
+
         lineSize: gCanvasFontSize,
-        color: '',
+        fillStyle: 'white',
+        strokeStyle: 'black',
+        lineWidth: 2,
+        textAlign: "center",
+
         isDrag: false,
         isTxtSave: isTxtSave,
     }
@@ -32,24 +37,36 @@ function addNewLine(text, x, y, isTxtSave) {
     }
 }
 
-function canvasTextProperties() {
+function canvasTextProperties(line) {
     gCtx.font = `${gCanvasFontSize}px impact bold`
-    gCtx.fillStyle = "white"
-    gCtx.strokeStyle = "black"
-    gCtx.lineWidth = 2
-    gCtx.textAlign = "center"
+    gCtx.fillStyle = `${line.fillStyle}`
+    gCtx.strokeStyle = `${line.strokeStyle}`
+    gCtx.lineWidth = `${line.lineWidth}`
+    gCtx.textAlign = `${line.textAlign}`
+    
     // const lineHeight = 80
     // wrappedText(lineHeight)
 }
 
 function increaseFont() {
-    console.log(getSelectedLine().lineSize)
-    getSelectedLine().lineSize + 100
-    renderCanvasWithContent()
+    // console.log(getSelectedLine().lineSize)
+    // getSelectedLine().lineSize + 100
+    // renderCanvasWithContent()
 }
-
 
 
 function _saveMemsToStorage() {
     saveToStorage(STORAGE_KEY, userMems)
 }
+
+
+
+// function canvasTextProperties(line) {
+//     gCtx.font = `${gCanvasFontSize}px impact bold`
+//     gCtx.fillStyle = "white"
+//     gCtx.strokeStyle = "black"
+//     gCtx.lineWidth = 2
+//     gCtx.textAlign = "center"
+//     // const lineHeight = 80
+//     // wrappedText(lineHeight)
+// }

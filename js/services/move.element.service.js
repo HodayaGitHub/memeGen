@@ -44,11 +44,9 @@ function onMove(ev) {
     // Calc the delta, the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
-    // console.log('dx dy', dx, dy)
     moveLine(dx, dy)
     // Save the last pos, we remember where we`ve been and move accordingly
     gStartPos = pos
-    // The canvas is render again after every move
     renderCanvasWithContent()
 }
 
@@ -70,8 +68,6 @@ function onDown(ev) {
 
 function onUp() {
     setLineDrag(false)
-
-    
 }
 
 function setLineDrag(isDrag) {
