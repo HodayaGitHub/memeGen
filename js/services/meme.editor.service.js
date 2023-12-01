@@ -1,4 +1,5 @@
 'use strict'
+let gCanvasFontSize = 80
 
 let gMeme = {
     draggedLineIdx: -1,
@@ -7,11 +8,6 @@ let gMeme = {
 
     ],
     selectedLineIdx: undefined,
-}
-
-
-function _saveMemsToStorage() {
-    saveToStorage(STORAGE_KEY, userMems)
 }
 
 
@@ -34,4 +30,26 @@ function addNewLine(text, x, y, isTxtSave) {
     } else {
         gMeme.lines.push(line)
     }
+}
+
+function canvasTextProperties() {
+    gCtx.font = `${gCanvasFontSize}px impact bold`
+    gCtx.fillStyle = "white"
+    gCtx.strokeStyle = "black"
+    gCtx.lineWidth = 2
+    gCtx.textAlign = "center"
+    // const lineHeight = 80
+    // wrappedText(lineHeight)
+}
+
+function increaseFont() {
+    console.log(getSelectedLine().lineSize)
+    getSelectedLine().lineSize + 100
+    renderCanvasWithContent()
+}
+
+
+
+function _saveMemsToStorage() {
+    saveToStorage(STORAGE_KEY, userMems)
 }

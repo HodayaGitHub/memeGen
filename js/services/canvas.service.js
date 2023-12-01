@@ -1,25 +1,9 @@
 'use strict'
-let gCanvasFontSize = 80
-
 
 function renderEmptyCanvas() {
     gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
     renderImageOnCanvas(gSelecedImg)
 }
-
-
-function canvasTextProperties() {
-    gCtx.font = `${gCanvasFontSize}px impact bold`
-    gCtx.fillStyle = "white"
-    gCtx.strokeStyle = "black"
-    gCtx.lineWidth = 2
-    gCtx.textAlign = "center"
-    // const lineHeight = 80
-    // wrappedText(lineHeight)
-}
-
-
-// function wrapText(context, text, x, y, maxWidth, lineHeight) {
 
 
 function wrapText(text, x, y, lineHeight, shouldDrawBox) {

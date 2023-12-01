@@ -60,17 +60,26 @@ function addEventListeners() {
     onUploadImg(event)
   })
 
-  $('.text-insert').on("input", function () {
-    onAddText()
-  })
 
+  $('.text-insert').on("input", onAddText)
   $('.plus-btn').on("click", onAddNewLine)
   $('.switch-lines').on("click", onChangeLineOrder)
-  $('.trash-btn').on("click", function () {
-    gMeme.lines = []
-    renderEmptyCanvas()
-  });
+  $('.trash-btn').on("click", onTrashBtn)
+  $('.increase-font').on("click", onIncreaseFont)
+}
 
+
+function onIncreaseFont(){
+  increaseFont() 
+  console.log('increase-font btn')
+  // renderCanvasWithContent()
+
+}
+
+function onTrashBtn(){
+  gMeme.lines = []
+  $('.text-insert').val('')
+  renderEmptyCanvas()
 }
 
 // function resizeCanvas() {
@@ -79,6 +88,8 @@ function addEventListeners() {
 //   // console.log(elCanvasContainer.clientWidth);
 //   gElCanvas.width = elCanvasContainer.clientWidth - 2
 // }
+
+
 
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
@@ -148,7 +159,6 @@ function renderCanvasWithContent() {
   gMeme.lines.forEach((line, index) => {
     renderLineOnCanvas(line, index)
   })
-
 }
 
 function renderLineOnCanvas(line, index) {
@@ -157,15 +167,9 @@ function renderLineOnCanvas(line, index) {
 
   const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx
   wrapText(text, x, y, gCanvasFontSize, shouldDrawBox)
-
-  // console.log(gCanvas.width + 'width')
-  // console.log(gCanvasFontSize + 'height')
 }
 
-
-
 function onChangeLineOrder() {
-  // gMeme.selectedLineIdx 
   if (gMeme.lines.length <= 1) {
     return
   }
