@@ -169,6 +169,8 @@ function renderLineOnCanvas(line, index) {
   wrapText(text, x, y, gCanvasFontSize, shouldDrawBox)
 }
 
+
+
 function onChangeLineOrder() {
   if (gMeme.lines.length <= 1) {
     return
