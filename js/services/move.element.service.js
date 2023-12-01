@@ -58,7 +58,7 @@ function getSelectedLine() {
 
 function onDown(ev) {
     const pos = getEventPos(ev)
-    console.log('pos', pos)
+    // console.log('pos', pos)
     if (!isLineClicked(pos)) return
 
     setLineDrag(true)

@@ -16,8 +16,8 @@ function addNewLine(text, x, y, isTxtSave) {
         text: text,
         x: x,
         y: y,
-
-        lineSize: gCanvasFontSize,
+        
+        lineSize: 50,
         fillStyle: 'white',
         strokeStyle: 'black',
         lineWidth: 2,
@@ -38,20 +38,27 @@ function addNewLine(text, x, y, isTxtSave) {
 }
 
 function canvasTextProperties(line) {
-    gCtx.font = `${gCanvasFontSize}px impact bold`
+    gCtx.font = `${line.lineSize}px impact`
     gCtx.fillStyle = `${line.fillStyle}`
     gCtx.strokeStyle = `${line.strokeStyle}`
     gCtx.lineWidth = `${line.lineWidth}`
     gCtx.textAlign = `${line.textAlign}`
-    
+
     // const lineHeight = 80
     // wrappedText(lineHeight)
 }
 
 function increaseFont() {
-    // console.log(getSelectedLine().lineSize)
-    // getSelectedLine().lineSize + 100
-    // renderCanvasWithContent()
+    console.log('selected line' , getSelectedLine())
+     let line = getSelectedLine()
+    console.log(line.lineSize)
+    line.lineSize += 5
+
+    console.log('new font size', line.lineSize)
+    // let fontSize = parseInt(line.lineSize)
+    // fontSize += 50
+    // line.lineSize + 100
+    renderCanvasWithContent()
 }
 
 

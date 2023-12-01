@@ -26,7 +26,7 @@ function wrapText(text, x, y, lineHeight, shouldDrawBox) {
 
 function drawTextBox(x, y, width, height) {
     gCtx.beginPath()
-    gCtx.rect(x - width / 2 - 10, y - height / 2 + 10, width + 20, height + 20)
+    gCtx.rect(x - width / 2 - 10, y - height / 2 + 5, width + 20, height + 5)
     gCtx.lineWidth = 2.5
     gCtx.stroke()
     gCtx.closePath()

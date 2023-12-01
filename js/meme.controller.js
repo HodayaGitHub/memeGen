@@ -70,10 +70,12 @@ function addEventListeners() {
 
 
 function onIncreaseFont(){
+  if(!getSelectedLine()){
+    return
+  }
   increaseFont() 
   console.log('increase-font btn')
   // renderCanvasWithContent()
-
 }
 
 function onTrashBtn(){
@@ -161,10 +163,11 @@ function renderCanvasWithContent() {
 
 function renderLineOnCanvas(line, index) {
   canvasTextProperties(line)
-  const { text, x, y, isTxtSave } = line
+  // increaseFont(line)
+  const { text, x, y, isTxtSave, lineSize } = line
 
   const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx
-  wrapText(text, x, y, gCanvasFontSize, shouldDrawBox)
+  wrapText(text, x, y, lineSize, shouldDrawBox)
 }
 
 
