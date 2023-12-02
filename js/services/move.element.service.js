@@ -128,9 +128,8 @@ function renderMovedLine() {
 }
 
 
-function drawArc(x, y, size, color) {
+function drawArc(x, y, color, size) {
     gCtx.beginPath()
-    // canvasTextProperties()
     gCtx.lineWidth = '6'
     gCtx.arc(x, y, size, 0, 2 * Math.PI)
     gCtx.strokeStyle = 'white'

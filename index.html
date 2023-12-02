@@ -54,55 +54,66 @@
 
     <main class="meme-editor-layout flex main-layout">
         <div class="canvas-container">
-            <canvas class="canvas" height="550px" width="550px"
-                style="letter-spacing: 2px; border: 2px solid #000;">
+            <canvas class="canvas" height="550px" width="550px" style="letter-spacing: 2px; border: 2px solid #000;">
             </canvas>
-            </div>
+        </div>
 
-            <div class="meme-editor ">
-                <input type="text" class="text-insert" placeholder="Add your meme text">
+        <div class="meme-editor ">
+            <input type="text" class="text-insert" placeholder="Add your meme text">
 
 
-                <div class="actions-btns ">
+            <div class="actions-btns ">
+                <ul class="icons flex clean-list">
+                    <li>
+                        <img class="switch-lines" src="icons/up-and-down.png" alt="Move line up or down">
+                    </li>
+                    <li>
+                        <img class="plus-btn" src="icons/add.png" alt="Add text line">
+                    </li>
+                    <li>
+                        <img class="trash-btn" src="icons/trash.png" alt="Remove item">
+                    </li>
+                </ul>
+
+                <div class="text-style-btns">
                     <ul class="icons flex clean-list">
                         <li>
-                            <img  class="switch-lines" src="icons/up-and-down.png" alt="Move line up or down">
+                            <img class="increase-font" src="icons/increase-font.png" alt="increase font size">
                         </li>
                         <li>
-                            <img class="plus-btn" src="icons/add.png" alt="Add text line">
+                            <img class="decrease-font" src="icons/decrease-font.png" alt="decrease size">
                         </li>
                         <li>
-                            <img class="trash-btn" src="icons/trash.png" alt="Remove item">
+                            <img class="align-left" src="icons/align-to-left.png" alt="Align text left">
                         </li>
+                        <li>
+                            <img class="align-center" src="icons/align-center.png" alt="Align text center">
+                        </li>
+                        <li>
+                            <img class="align-right" src="icons/align-to-right.png" alt="Align text right">
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div class="text-style-btns">
+                    <ul class="icons flex clean-list">
+                        <li>
+                            <img class="text-color-input" src="icons/brush.png" alt="Align text right">
+                            <input class="color-input" type="color">
+                        </li>
+
+                        <li>
+                            <img class="text-outline-color" src="icons/text-stroke.png" alt="Align text right">
+                            <input class="color-input" type="color">
+                        </li>
+
                     </ul>
 
-                    <div class="text-style-btns">
-                        <ul class="icons flex clean-list">
-                            <li>
-                                <img class="increase-font" src="icons/increase-font.png" alt="increase font size">
-                            </li>
-                            <li>
-                                <img class="decrease-font" src="icons/decrease-font.png" alt="decrease size">
-                            </li>
-                            <li>
-                                <img src="icons/align-to-left.png" alt="Align text left">
-                            </li>
-                            <li>
-                                <img src="icons/align-center.png" alt="Align text center">
-                            </li>
-                            <li>
-                                <img src="icons/align-to-right.png" alt="Align text right">
-                            </li>
+                </div>
 
-                            <li>
-                                <img src="icons/brush.png" alt="Align text right">
-                            </li>
 
-                        </ul>
 
-                    </div>
-
-    
             </div>
         </div>
     </main>

@@ -65,20 +65,62 @@ function addEventListeners() {
   $('.plus-btn').on("click", onAddNewLine)
   $('.switch-lines').on("click", onChangeLineOrder)
   $('.trash-btn').on("click", onTrashBtn)
-  $('.increase-font').on("click", onIncreaseFont)
+
+  $('.increase-font').click(function () {
+    onChangeFontSize('increase')
+  })
+  $('.decrease-font').click(function () {
+    onChangeFontSize('decrease')
+  })
+
+  // alignment: 
+  $('.align-left').click(function () {
+    onChangeAlignment('left')
+  })
+  $('.align-center').click(function () {
+    onChangeAlignment('center')
+  })
+  $('.align-right').click(function () {
+    onChangeAlignment('right')
+  })
+
+// change text / outline color 
+  $('.text-color-input').click(function () {
+    $(this).siblings('.color-input').click()
+  })
+
+  $('.text-outline-color').click(function () {
+    $(this).siblings('.color-input').click()
+  })
+
+  $('.color-input').on('input', function (event) {
+    const selectedColor = event.target.value
+    setTextColor(selectedColor)
+  })
+
+
+
 }
 
 
-function onIncreaseFont(){
-  if(!getSelectedLine()){
+function onChangeAlignment(alignDirection) {
+  if (!getSelectedLine()) {
     return
   }
-  increaseFont() 
-  console.log('increase-font btn')
-  // renderCanvasWithContent()
+  setAlignment(alignDirection)
+
 }
 
-function onTrashBtn(){
+function onChangeFontSize(changeSizeType) {
+  if (!getSelectedLine()) {
+    return
+  }
+
+  setFontSize(changeSizeType)
+}
+
+
+function onTrashBtn() {
   gMeme.lines = []
   $('.text-insert').val('')
   renderEmptyCanvas()
@@ -163,10 +205,10 @@ function renderCanvasWithContent() {
 
 function renderLineOnCanvas(line, index) {
   canvasTextProperties(line)
-  // increaseFont(line)
   const { text, x, y, isTxtSave, lineSize } = line
 
   const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx
+  // setAlignment(alignDirection)
   wrapText(text, x, y, lineSize, shouldDrawBox)
 }
 
