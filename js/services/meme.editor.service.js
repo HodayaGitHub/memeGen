@@ -35,7 +35,9 @@ function addNewLine(text, x, y, isTxtSave) {
         gMeme.lines[unsavedLineIdx] = line
     } else {
         gMeme.lines.push(line)
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
     }
+
 }
 
 function canvasTextProperties(line) {
@@ -43,7 +45,7 @@ function canvasTextProperties(line) {
     gCtx.fillStyle = `${line.fillStyle}`
     gCtx.strokeStyle = `${line.strokeStyle}`
     gCtx.lineWidth = `${line.lineWidth}`
-    gCtx.textAlign = `${line.textAlign}`
+    gCtx.textAlign = `center`
 }
 
 
@@ -76,30 +78,25 @@ function setOutlineColor(color) {
 
 
 function setAlignment(alignDirection) {
-    let line = getSelectedLine()
-    let lineIdx = gMeme.selectedLineIdx
+    let line = getSelectedLine();
+    let lineIdx = gMeme.selectedLineIdx;
+
+    const canvasWidth = gCanvas.width
 
     if (alignDirection === 'left') {
         line.textAlign = 'left'
-        line.x += 50
-
-        console.log('left')
-
-
+        line.x = gCtx.measureText(line.text).width / 2 + 12
     } else if (alignDirection === 'center') {
         line.textAlign = 'center'
-        console.log('center')
-        line.x = 0
-
+        line.x = canvasWidth / 2
     } else {
         line.textAlign = 'right'
-        console.log('right')
-        line.x -= 60
-
+        line.x = canvasWidth - gCtx.measureText(line.text).width / 2 - 12
     }
-    // renderLineOnCanvas(line, lineIdx) 
-    renderCanvasWithContent()
 
+    // renderLineOnCanvas(line, lineIdx)
+    // renderLineOnCanvas(line, lineIdx)
+    renderCanvasWithContent()
 }
 
 

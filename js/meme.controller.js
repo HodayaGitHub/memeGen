@@ -84,7 +84,7 @@ function addEventListeners() {
     onChangeAlignment('right')
   })
 
-// change text / outline color 
+  // change text / outline color 
   $('.text-color-input').click(function () {
     $(this).siblings('.color-input').click()
   })
@@ -157,14 +157,12 @@ function onSelectImg(image) {
 
 
 function onAddNewLine() {
-  // prevent from user to press when there's no 
-  // lines otherwise it will print undifined
   const txtValue = $('.text-insert').val()
 
   if (txtValue) {
     deleteTempIdx()
 
-    let maxY = gCanvasFontSize * -1
+    let maxY = gCanvasFontSize / 2 * -1
     gMeme.lines.forEach(line => {
       if (line.y > maxY) {
         maxY = line.y
