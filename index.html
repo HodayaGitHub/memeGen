@@ -26,6 +26,7 @@
                 </span>
             </nav>
 
+
             <select class="lang-btn">
                 <option value="en">English</option>
                 <option value="he">עברית</option>
@@ -35,19 +36,26 @@
 
     </header>
 
-    <main class="main-layout main-layout-container">
 
-        <div class="images-container">
-
-
-
-            <div class="upload-img">
-                <!-- <label class="imageUpload" data-trans="imgUpload">upload</label> -->
-                <input type="file" id="imageInput" class="image-upload-btn" data-trans="imgUpload" accept="image/*">
-
+    <section class="main-layout full filtering-container">
+            <div class="search-container flex-row">
+                <div class="search"> 
+                <span>Type a keyword to search: </span>
+                <input class="search-input" name="search" placeholder="Search for a category" autocomplete="off"
+                    data-trans="search-placeholder"/>
+                </div>
+                <div class="keyword-list">
+                    <ul class="keywords-container clean-list flex-row"></ul>
+                </div>
             </div>
 
+    </section>
+
+    <main class="main-layout main-layout-container">
+        <div class="images-container">
+         
         </div>
+        
     </main>
 
 
@@ -58,7 +66,7 @@
             </canvas>
         </div>
 
-        <div class="meme-editor ">
+        <div class="meme-editor">
             <input type="text" class="text-insert" placeholder="Add your meme text">
 
 
@@ -102,29 +110,49 @@
                             <img class="text-color-input" src="icons/brush.png" alt="Align text right">
                             <input class="color-input" type="color">
                         </li>
-
                         <li>
                             <img class="text-outline-color" src="icons/text-stroke.png" alt="Align text right">
-                            <input class="color-input" type="color">
+                            <input class="outline-color-input" type="color">
                         </li>
-
                     </ul>
-
                 </div>
-
-
-
             </div>
         </div>
     </main>
 
 
     <footer class="main-layout full">
+        <section>
+            <div class="contact-img">
+                <img src="imgs/profile.PNG" />
+            </div>
+            <div class="contact-details">
+                <h2 data-trans="contact-title"></h2>
+                <p data-trans="contact-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
+                    nulla voluptatum sunt commodi quo asperiores porro ex, nam itaque
+                    at.
+                </p>
+                <ul class="social-nav clean-list flex justify-center">
+                    <li>
+                        <a class="fa-brands fa-linkedin" href="https://www.linkedin.com/in/rona-fainshtein"></a>
+                    </li>
+                    <li>
+                        <a class="fa-brands fa-facebook" href="https://www.facebook.com/"></a>
+                    </li>
+                    <li>
+                        <a class="fa-brands fa-github" href="https://github.com/RonaFain"></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
         copyrights
     </footer>
 
 
+
     <script src="lib/jquery/jquery.js"></script>
+    <script src="js/services/db.service.js"></script>
     <script src="js/services/storage.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/canvas.service.js"></script>

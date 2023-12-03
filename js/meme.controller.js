@@ -19,6 +19,7 @@ function onInit() {
   addTouchMouseListeners()
 
   $('.canvas-container').hide()
+  $('.meme-editor').hide()
 
   gCanvas = $('canvas')[0]
   gCtx = gCanvas.getContext('2d')
@@ -29,37 +30,57 @@ function onInit() {
   window.addEventListener('resize', resizeCanvas)
 
   $('.meme-editor-layout').css('cursor', 'pointer')
-}
+  renderKeywords()
 
+}
 
 function renderImages() {
-  _createImages()
   const imageContainer = $('.images-container')
-  // imageContainer.html('')
+  imageContainer.empty()
+  const filteredImages = getImages()
 
-  gImages.forEach((image, index) => {
-    const imgElement = `
-      <div class="grid-item">
-      <img  src="${image.imgUrl}"
-      alt="${image.imgAlt}" 
-      data-index="${index}">
-      </img>
-      </div>`
-    imageContainer.append(imgElement)
+  let imgElement = `<div class="upload-img">
+      <label for="imageInput" class="upload-label" data-trans="imgUpload">
+          Click to Upload
+      </label>
+      <input type="file" id="imageInput" class="image-upload-btn" 
+          accept="image/*" style="display: none;">
+  </div>`
+
+  imageContainer.append(imgElement);
+
+  filteredImages.forEach((image, index) => {
+      imgElement = `
+          <div class="grid-item">
+              <img src="img/${image.imgUrl}"
+                  alt="${image.imgAlt}"
+                  data-index="${index}" />
+          </div>`
+
+      imageContainer.append(imgElement)
   })
-  // id="img#${image.id}"
 }
+
 
 
 function addEventListeners() {
   $('.grid-item img').click(function () {
+    $('.meme-editor').show()
+    $('.filtering-container').hide()
+
+    renderImageOnCanvas(this)
+  })
+
+  $('.upload-img').click(function () {
+    $('.meme-editor').show()
+    $('.filtering-container').hide()
+
     renderImageOnCanvas(this)
   })
 
   $('.image-upload-btn').on("change", function (event) {
     onUploadImg(event)
   })
-
 
   $('.text-insert').on("input", onAddText)
   $('.plus-btn').on("click", onAddNewLine)
@@ -89,17 +110,53 @@ function addEventListeners() {
     $(this).siblings('.color-input').click()
   })
 
-  $('.text-outline-color').click(function () {
-    $(this).siblings('.color-input').click()
-  })
-
   $('.color-input').on('input', function (event) {
     const selectedColor = event.target.value
     setTextColor(selectedColor)
   })
 
 
+  $('.text-outline-color').click(function () {
+    $(this).siblings('.outline-color-input').click()
+  })
 
+  $('.outline-color-input').on('input', function (event) {
+    const selectedColor = event.target.value
+    setTextOutline(selectedColor)
+  })
+
+  $('.search-input').on('input', handleSearch)
+
+
+
+  $('.keywords-container').on('click', 'a.keyword', function (event) {
+    event.preventDefault()
+    const word = $(this).text()
+    onKeyFillter(event, word)
+  })
+
+}
+
+function onKeyFillter(event, word) {
+  gFillterBy = word
+
+  filterByKeyword(word) 
+  renderKeywords()
+  renderImages()
+}
+
+function renderKeywords() {
+  const keywords = getKeywords()
+
+  let strHtmls = '';
+  Object.entries(keywords).forEach(function ([word, size]) {
+    strHtmls += `
+      <li class="keyword">
+        <a href="#" style="font-size: ${size}px;" class="keyword">${word}</a>
+      </li>`
+  })
+
+  $('.keywords-container').html(strHtmls)
 }
 
 
@@ -155,7 +212,6 @@ function onSelectImg(image) {
   gCtx.drawImage(image, 0, 0, gCanvas.width, gCanvas.height)
 }
 
-
 function onAddNewLine() {
   const txtValue = $('.text-insert').val()
 
@@ -206,10 +262,8 @@ function renderLineOnCanvas(line, index) {
   const { text, x, y, isTxtSave, lineSize } = line
 
   const shouldDrawBox = !isTxtSave || index === gMeme.selectedLineIdx
-  // setAlignment(alignDirection)
   wrapText(text, x, y, lineSize, shouldDrawBox)
 }
-
 
 
 function onChangeLineOrder() {
@@ -220,3 +274,4 @@ function onChangeLineOrder() {
   renderCanvasWithContent()
 
 }
+

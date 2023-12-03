@@ -1,14 +1,28 @@
 .images-container {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    /* grid-auto-flow: column; */
+    grid-template-columns: repeat(4, 1fr);
     margin: 5% 0;
     gap: 10px;
-    /* grid-auto-flow: row; */
-    /* grid-template-rows: auto minmax(80px, min-content) auto;  */
+    
 
 }
+.upload-img {
+    position: relative; 
+}
 
+.upload-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    color: black;
+    cursor: pointer;
+}
 
 .grid-item {
     width: 100%;
@@ -33,3 +47,13 @@
     /* opacity: 0; */
 /* } */
 
+
+.search-container {
+    justify-content: space-around;
+    font-size: 1.5rem;
+}
+
+
+li .keyword {
+padding: 4px;
+}

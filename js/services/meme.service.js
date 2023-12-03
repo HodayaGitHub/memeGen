@@ -1,6 +1,6 @@
 'use strict'
-let gImages = []
 
+let gFillterBy = 'all'
 
 function _createImg(id, imgUrl, imgAlt) {
     return {
@@ -12,18 +12,28 @@ function _createImg(id, imgUrl, imgAlt) {
 }
 
 
-function _createImages() {
-    const numbersArray = Array.from({ length: 19 }, (_, index) => index)
-
-    gImages = numbersArray.map((index) => {
-        var id = `${index + 1}`
-        const imgUrl = `img/${index + 1}.jpg`
-        const imgAlt = `Image ${index + 1}`
-        return _createImg(id, imgUrl, imgAlt)
-    })
-
-    console.log(gImages)
-
+function getKeywords(isAllKeys) {
+    if (isAllKeys) return gKeywords
+    else {
+      const { all, funny, animal, akward, happy, angry } = gKeywords
+      return { all, funny, animal, akward, happy, angry }
+    }
 }
 
+function getImages() {
+    if (gFillterBy === 'all') return gImages;
+    return gImages.filter((img) => img.keywords.includes(gFillterBy));
+  }
 
+
+function handleSearch() {
+    const searchInput = $('.search-input').val().toLowerCase()
+    const keywords = getKeywords(false)
+    const matchedKeyword = Object.keys(keywords).find(keyword =>
+        keyword.toLowerCase() == searchInput
+    )
+    gFillterBy = matchedKeyword || 'all'
+
+    
+    renderImages()
+}

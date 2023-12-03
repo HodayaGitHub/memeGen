@@ -37,22 +37,17 @@ function onMove(ev) {
         return
     }
     const isDrag = getSelectedLine().isDrag
-
     if (!isDrag) return
     const pos = getEventPos(ev)
-    // console.log('pos event', pos)
-    // Calc the delta, the diff we moved
     const dx = pos.x - gStartPos.x
     const dy = pos.y - gStartPos.y
     moveLine(dx, dy)
-    // Save the last pos, we remember where we`ve been and move accordingly
     gStartPos = pos
     renderCanvasWithContent()
 }
 
 
 function getSelectedLine() {
-    // console.log(gMeme.lines[gMeme.selectedLineIdx])
     return gMeme.lines[gMeme.selectedLineIdx]
 }
 

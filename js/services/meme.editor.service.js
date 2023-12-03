@@ -51,17 +51,14 @@ function canvasTextProperties(line) {
 
 function setTextColor(color) {
     let line = getSelectedLine()
-    console.log(`'${color}'`)
-    console.log(line.fillStyle)
     line.fillStyle = color
 
     renderCanvasWithContent()
 }
 
-function setTextColor(color) {
+function setTextOutline(color) {
     let line = getSelectedLine()
-    console.log(`'${color}'`)
-    console.log(line.fillStyle)
+ 
     line.strokeStyle = color
 
     renderCanvasWithContent()
@@ -94,8 +91,6 @@ function setAlignment(alignDirection) {
         line.x = canvasWidth - gCtx.measureText(line.text).width / 2 - 12
     }
 
-    // renderLineOnCanvas(line, lineIdx)
-    // renderLineOnCanvas(line, lineIdx)
     renderCanvasWithContent()
 }
 
@@ -109,7 +104,6 @@ function setFontSize(changeSizeType) {
         line.lineSize -= 5
     }
 
-    // console.log('new font size', line.lineSize)
     renderCanvasWithContent()
 }
 
@@ -118,3 +112,10 @@ function _saveMemsToStorage() {
     saveToStorage(STORAGE_KEY, userMems)
 }
 
+
+  function filterByKeyword(word) {
+    if (word !== 'all' && gKeywords[word] <= 30) {
+      gKeywords[word] += 1
+    }
+  }
+  
