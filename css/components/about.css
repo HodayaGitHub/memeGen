@@ -38,3 +38,7 @@ a:hover {
     text-align: center;
     display: none;
 }
+
+.meme-editor-layout.main-layout .about{
+    margin-bottom: 0;
+}
