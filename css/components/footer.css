@@ -4,7 +4,7 @@ footer {
 }
 
 .footer-container {
-min-width: 300px;
+/* min-width: 300px; */
 }
 
 footer img {
@@ -24,4 +24,12 @@ footer img {
     font-size: 3rem;
     justify-content: center;
     gap: 20px;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
 }

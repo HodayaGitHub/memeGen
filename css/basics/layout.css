@@ -4,9 +4,7 @@ html {
 
 .main-layout {
     display: grid;
-    grid-template-columns:
-        minmax(20px, 1fr) minmax(auto, var(--xl)) minmax(20px, 1fr);
-
+    grid-template-columns: 20px 1fr 20px;
 }
 
 
@@ -17,8 +15,6 @@ html {
 
 .main-layout>*:not(.full) {
     grid-column: 2;
-
-
 }
 
 .nav-container {
@@ -36,3 +32,5 @@ html {
     margin-top: 40px;
     justify-content: center;
 }
+
+

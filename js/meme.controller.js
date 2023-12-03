@@ -16,7 +16,7 @@ function onInit() {
 
   renderImages()
   addEventListeners()
-  resizeCanvas()
+  // resizeCanvas()
 
   addTouchMouseListeners()
 
@@ -28,7 +28,7 @@ function onInit() {
 
   gCenter = { x: gCanvas.width / 2, y: gCanvas.height / 2 }
 
-  window.addEventListener('resize', resizeCanvas)
+  // window.addEventListener('resize', resizeCanvas)
 
   $('.meme-editor-layout').css('cursor', 'pointer')
   renderKeywords()
@@ -66,24 +66,11 @@ function renderImages() {
 
 
 function addEventListeners() {
-  $('.grid-item img').click(function () {
-    $('.meme-editor').show()
-    $('.filtering-container').hide()
-
-    renderImageOnCanvas(this)
-  })
-
-  $('.upload-img').click(function () {
-    $('.meme-editor').show()
-    $('.filtering-container').hide()
-
-    renderImageOnCanvas(this)
-  })
-
   $('.image-upload-btn').on("change", function (event) {
     onUploadImg(event)
   })
 
+// editor btns
   $('.text-insert').on("input", onAddText)
   $('.plus-btn').on("click", onAddNewLine)
   $('.switch-lines').on("click", onChangeLineOrder)
@@ -142,8 +129,6 @@ function addEventListeners() {
     $('.images-container').hide()
     $('.search-container').hide()
     $('.memes-page-container').hide()
-    // $('.meme-editor-layout').hide()
-    // $('.filtering-container').hide()
   })
 
   $('.memes-page').on('click', function(){
@@ -153,34 +138,85 @@ function addEventListeners() {
     $('.about-container').hide()
   })
 
-  window.addEventListener('resize', () => {
-    resizeCanvas()
-    renderCanvasWithContent()
-})
+
 
 $('.mobile-toggle-menu').click(function(e) {
   e.stopPropagation()
+    document.body.classList.toggle('menu-opened')
+  $('.close-btn').addClass('close-toggle-btn')
   $('.main-navbar').toggle()
-});
+})
+
+$('.close-btn').on("click",onCloseTogglebtn)
 
 // Close navbar when clicking outside
-// $(document).click(function(e) {
-//   if (!$(e.target).closest('.main-navbar').length && !$(e.target).closest('.mobile-toggle-menu').length) {
-//       $('.main-navbar').hide()
+$(document).click(function(e) {
+  if (!$(e.target).closest('.main-navbar').length 
+  && !$(e.target).closest('.mobile-toggle-menu').length) {
+      $('.main-navbar').hide()
+      // document.body.classList.remove('menu-opened')
+      $('body').removeClass('menu-opened')
+
+  }
+})
+
+
+
+$('.grid-item img').click(function () {
+  $('.meme-editor').show()
+  $('.filtering-container').hide()
+  $('.meme-editor-layout').addClass('flex main-layout');
+
+  renderImageOnCanvas(this)
+})
+
+$('.upload-img').click(function () {
+  $('.meme-editor').show()
+  $('.filtering-container').hide()
+
+  renderImageOnCanvas(this)
+})
+
+
+
+// window.addEventListener('resize', () => {
+//   if (isMemeEditorVisible()) {
+//       resizeCanvas()
+//       renderCanvasWithContent()
 //   }
 // })
-
-
-
 }
 
 
-function resizeCanvas() {
-  const elContainer = $('.canvas-container')
-  gElCanvas.width = elContainer.offsetWidth
-  gElCanvas.height = elContainer.offsetHeight
+
+function onCloseTogglebtn() {
+  $('.close-btn').remove('close-toggle-btn')
+  $('.main-navbar').toggle()
+  $('body').removeClass('menu-opened')
+  // $('.main-navbar').hide()
 }
 
+// function isMemeEditorVisible() {
+//   const memeEditorSection = $('.meme-editor-layout')
+//   console.log(memeEditorSection.hasClass('main-layout'))
+//   return memeEditorSection.hasClass('main-layout')
+// }
+
+
+// function resizeCanvas() {
+//   const elContainer = $('.canvas-container')
+//   gElCanvas.width = elContainer.offsetWidth
+//   gElCanvas.height = elContainer.offsetHeight
+//   renderCanvasWithContent()
+// }
+
+
+// function resizeCanvas() {
+//   const elCanvasContainer = $('.canvas-container')
+//   // Changing the canvas dimension clears the canvas
+//   // console.log(elCanvasContainer.clientWidth);
+//   gElCanvas.width = elCanvasContainer.clientWidth - 2
+// }
 
 function onKeyFillter(event, word) {
   gFillterBy = word
@@ -232,12 +268,7 @@ function onTrashBtn() {
   renderEmptyCanvas()
 }
 
-// function resizeCanvas() {
-//   const elCanvasContainer = $('.canvas-container')
-//   // Changing the canvas dimension clears the canvas
-//   // console.log(elCanvasContainer.clientWidth);
-//   gElCanvas.width = elCanvasContainer.clientWidth - 2
-// }
+
 
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()

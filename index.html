@@ -22,6 +22,7 @@
             <button class="mobile-toggle-menu">☰</button>
             <div class="overlay"></div>
             <nav class="main-navbar flex">
+                <button class="close-btn">x</button>
                 <span class="main-nav-list clean-text flex">
                     <a  href="index.html" data-trans="gallery">Gallery</a>
                     <a href="#" class="memes-page" data-trans="memes">Memes</a>
@@ -53,7 +54,7 @@
             <div class="search-container flex-row">
                 <div class="search"> 
                 <span data-trans="keywordToSearch">Type a keyword to search: </span>
-                <input class="search-input" name="search" placeholder="Search for a category" autocomplete="off"
+                <input type="text" class="search-input" name="search" placeholder="Search for a category" autocomplete="off"
                     data-trans="search-placeholder"/>
                 </div>
                 <div class="keyword-list">
@@ -73,10 +74,10 @@
 
 
     <main class="meme-editor-layout flex main-layout">
-        <div class="canvas-container">
+        <!-- <div class="canvas-container">
             <canvas class="canvas" height="550px" width="550px" style="letter-spacing: 2px; border: 2px solid #000;">
             </canvas>
-        </div>
+        </div> -->
 
         <div class="meme-editor">
             <input type="text" class="text-insert" placeholder="Add your meme text">

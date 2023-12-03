@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: play, serif;
+    color: var(--clrPrimaryBase);
+    line-height: 1.7142857;
+}
+
+
+
+body {
+    margin: 0;
+    font-size: 0.875rem;
+    font-family: eurofurence;
+    background-color: #e3e3e3;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 1em;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2.142857em;
+}
+
+img {
+   width: 100%; 
+}
+
+a {
+    color: var(--clrPrimary-1);
+}
+
+p {
+    margin: 0 0 1em;
+}

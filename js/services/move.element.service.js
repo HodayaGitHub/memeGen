@@ -5,10 +5,6 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 function addTouchMouseListeners() {
     addMouseListeners()
     // addTouchListeners()
-    window.addEventListener('resize', () => {
-        resizeCanvas()
-        renderCanvasWithContent()
-    })
 }
 
 function resizeCanvas() {
