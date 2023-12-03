@@ -1,0 +1,39 @@
+h1 {
+    color: #333;
+    margin-top: 0;
+}
+
+p {
+    color: #666;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Add scroll-snap-type for a snapping effect */
+.about-container {
+    scroll-snap-type: y mandatory;
+}
+
+.section {
+    scroll-snap-align: start;
+}
+
+a {
+    transition: color 0.3s ease;
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #007BFF;
+}
+
+
+.memes-page-container {
+    font-size: 3rem;
+    text-align: center;
+}

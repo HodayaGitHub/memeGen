@@ -5,15 +5,15 @@ let gImages = []
 const gKeywords = {
     all: 30,
     funny: 25,
-    animal: 18,
-    akward: 14,
-    happy: 13,
+    akward: 21,
+    baby: 17,
+    happy: 20,
     angry: 21,
     people: 24,
-    baby: 15,
     politics: 18,
     cute: 20,
     crazy: 15,
+    animal: 19,
 }
 
 

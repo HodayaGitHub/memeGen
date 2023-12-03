@@ -31,6 +31,9 @@ function onInit() {
 
   $('.meme-editor-layout').css('cursor', 'pointer')
   renderKeywords()
+  $('.about-container').hide()
+  $('.memes-page-container').hide()
+
 
 }
 
@@ -128,12 +131,30 @@ function addEventListeners() {
   $('.search-input').on('input', handleSearch)
 
 
-
-  $('.keywords-container').on('click', 'a.keyword', function (event) {
+  $('.keywords-container').on('click', '.keyword', function (event) {
     event.preventDefault()
     const word = $(this).text()
     onKeyFillter(event, word)
   })
+
+
+  $('.about-page').on('click', function(){
+    $('.about-container').show()
+    $('.images-container').hide()
+    $('.search-container').hide()
+    $('.memes-page-container').hide()
+  })
+
+  $('.memes-page').on('click', function(){
+    $('.memes-page-container').show()
+    $('.images-container').hide()
+    $('.search-container').hide()
+    $('.about-container').hide()
+//     $('.main-layout main-layout-container').hide()
+// $('.meme-editor-layout flex main-layout').hide()
+
+  })
+
 
 }
 
@@ -148,12 +169,10 @@ function onKeyFillter(event, word) {
 function renderKeywords() {
   const keywords = getKeywords()
 
-  let strHtmls = '';
+  let strHtmls = ''
   Object.entries(keywords).forEach(function ([word, size]) {
     strHtmls += `
-      <li class="keyword">
-        <a href="#" style="font-size: ${size}px;" class="keyword">${word}</a>
-      </li>`
+      <li class="keyword" style="font-size: ${size}px;" class="keyword">${word}</li>`
   })
 
   $('.keywords-container').html(strHtmls)

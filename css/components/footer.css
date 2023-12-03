@@ -1,5 +1,27 @@
 footer {
     background-color: #6aa7cf73;
-    max-height: 100px;
     bottom: 0;
+}
+
+.footer-container {
+min-width: 300px;
+}
+
+footer img {
+    height: 400px;
+    width: 400px;
+}
+
+.footer-title {
+    font-size: 3rem;
+
+}
+
+.footer-content {
+    font-size: 2rem;
+}
+.social-nav{
+    font-size: 3rem;
+    justify-content: center;
+    gap: 20px;
 }

@@ -20,9 +20,9 @@
 
             <nav class="main-navbar flex">
                 <span class="main-nav-list clean-text">
-                    <a href="#" data-trans="gallery">Gallery</a>
-                    <a href="#" data-trans="memes">Memes</a>
-                    <a href="#" data-trans="about">About</a>
+                    <a  href="index.html" data-trans="gallery">Gallery</a>
+                    <a href="#" class="memes-page" data-trans="memes">Memes</a>
+                    <a href="#about" class="about-page" data-trans="about">About</a>
                 </span>
             </nav>
 
@@ -35,6 +35,14 @@
         </div>
 
     </header>
+
+    
+    <div class="memes-page">
+        <div class="memes-page-container">
+            There are no saved memes currently
+
+        </div>
+    </div>
 
 
     <section class="main-layout full filtering-container">
@@ -121,19 +129,41 @@
     </main>
 
 
+    <div class="main-layout about-container">
+        <h1>About Us</h1>
+        <p>Welcome to our website! We are a team of passionate individuals dedicated to providing valuable information and services to our users.</p>
+        
+        <h2>Our Mission</h2>
+        <p>Our mission is to make a positive impact by delivering high-quality content and creating a user-friendly experience. We strive to meet the needs and expectations of our audience.</p>
+
+        <h2>Meet the Team</h2>
+        <ul>
+            <li><strong>John Doe</strong> - Founder and CEO</li>
+            <li><strong>Jane Smith</strong> - Chief Editor</li>
+            <li><strong>Bob Johnson</strong> - Web Developer</li>
+        </ul>
+
+        <h2>Contact Us</h2>
+        <p>If you have any questions or feedback, feel free to contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
+    </div>
+
+
+
     <footer class="main-layout full">
-        <section>
-            <div class="contact-img">
-                <img src="imgs/profile.PNG" />
+        <section class="footer-container flex-row">
+            <div class="footer-img">
+                <img src="img/footer-picture.png"/>
             </div>
-            <div class="contact-details">
-                <h2 data-trans="contact-title"></h2>
-                <p data-trans="contact-body">
+            <div class="footer-details">
+                <h1 data-trans="footer-title">
+                    Thanks for using my meme generator
+                </h1>
+                <p class="footer-content" data-trans="footer-content">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
                     nulla voluptatum sunt commodi quo asperiores porro ex, nam itaque
                     at.
                 </p>
-                <ul class="social-nav clean-list flex justify-center">
+                <ul class="social-nav clean-list flex">
                     <li>
                         <a class="fa-brands fa-linkedin" href="https://www.linkedin.com/in/rona-fainshtein"></a>
                     </li>
@@ -144,9 +174,10 @@
                         <a class="fa-brands fa-github" href="https://github.com/RonaFain"></a>
                     </li>
                 </ul>
+                <span> copyrights </span>
+
             </div>
         </section>
-        copyrights
     </footer>
 
 

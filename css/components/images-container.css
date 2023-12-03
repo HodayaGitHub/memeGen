@@ -54,6 +54,28 @@
 }
 
 
-li .keyword {
+.keyword {
 padding: 4px;
+cursor: pointer;
+}
+
+.grid-item {
+    border-radius: 20px;
+    /* border: 1px solid; */
+}
+
+.grid-item:hover {
+    border: 3px solid;
+
+}
+
+
+.upload-img {
+    border-radius: 20px;
+   
+}
+
+.upload-img:hover{
+    background-color: #dacfcf6e;
+    border: 3px solid;
 }
