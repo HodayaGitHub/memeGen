@@ -50,7 +50,7 @@
 
 .search-container {
     justify-content: space-around;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 
@@ -79,3 +79,4 @@ cursor: pointer;
     background-color: #dacfcf6e;
     border: 3px solid;
 }
+

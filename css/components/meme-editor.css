@@ -39,19 +39,6 @@
   gap: 20px;
   margin: 10px;
 }
-/* 
-li .color-input-container{
-
-
-} */
-
-/* .color-input {
-  display: none;
-}
-
-.color-input-container {
-  position: relative;
-} */
 
 .color-input-container {
   list-style: none;
@@ -59,19 +46,14 @@ li .color-input-container{
   align-items: center;
 }
 .text-color-input {
-  /* width: 30px;
-  height: 30px; */
   cursor: pointer;
 }
-.color-input {
-  /* margin-left: 100px; */
-  /* display: none; Hide the color input by default */
-  /* position: absolute; */
-  /* width: 200px; */
-}
+
 
 input[type="color" i] {
   opacity: 0; 
   width: 0;
   height: 0;
 }
+
+
