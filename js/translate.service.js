@@ -18,7 +18,7 @@ function init() {
           all:"All",
           funny:"Funny",
           animal:"Animal",
-          akward:"Akward",
+          akward:"Awkward",
           happy:"Happy",
           angry:"Angry",
           imgUpload:"Click to upload",

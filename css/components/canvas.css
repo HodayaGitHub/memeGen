@@ -3,12 +3,17 @@
     justify-content: center;
     cursor: grab;
     
-    width: 20vw;
-    height: 30vw;
+    /* width: 50%;
+    height: 80%; */
+    /* flex-direction: column; */
+    /* border: 8px solid blue; */
+}
+.meme-editor-layout{
+    display: flex;
+    flex-direction: column;
 }
 
 .canvas-container:active {
     cursor: grabbing;
 }
-canvas {}
 

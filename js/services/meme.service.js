@@ -15,8 +15,8 @@ function _createImg(id, imgUrl, imgAlt) {
 function getKeywords(isAllKeys) {
     if (isAllKeys) return gKeywordSearchCountMap
     else {
-      const { all, funny, animal, akward, happy, angry } = gKeywordSearchCountMap
-      return { all, funny, animal, akward, happy, angry }
+      const { all, funny, animal, awkward, happy, angry } = gKeywordSearchCountMap
+      return { all, funny, animal, awkward, happy, angry }
     }
 }
 

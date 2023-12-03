@@ -1,14 +1,11 @@
-/* .arrows-btn{
-    font-size: 15px;
-} */
-
 .meme-editor {
   align-items: center;
-  /* justify-content: center; */
   display: flex;
   flex-direction: column;
   gap: 30px;
   height: 100%;
+  background: #6aa7cf73;
+  border-radius: 15px;
 
 }
 
@@ -25,16 +22,16 @@ input[type="text"] {
 .text-insert {
   max-width: 520px;
   height: 18%;
+  margin-top: 10px;
+  border-radius: 15px;
 }
 
 .icons li img{ 
-  /* align-items: center; */
   height: 50px;
   width: 50px;
 }
 
 .search-btn img.icons  { 
-  /* align-items: center; */
   height: 30px;
   width: 30px;
 }
@@ -51,23 +48,16 @@ input[type="text"] {
   display: flex;
   align-items: center;
 }
+
 .text-color-input {
   cursor: pointer;
 }
-
 
 input[type="color" i] {
   opacity: 0; 
   width: 0;
   height: 0;
 }
-
-/* .canvas-container {
-} */
-
-/* .meme-editor-section {
-  display: none;
-} */
 
 .actions-btns {
   display: flex;
@@ -76,7 +66,36 @@ justify-content: space-around;
 height: 100%;
 }
 
-/* .canvas-container {
-  width: 60vw;
-  height: 80vh;
-} */
+
+.meme-editor{
+  display: flex;
+  flex-direction: column;
+}
+
+/** Pill Checkbox Example */
+
+.pill-checkbox-label {
+  background-color: green;
+  width: 60px;
+  height: 30px;
+  border-radius: 100px;
+  padding: 2px;
+  transition: all 0.4s ease-in-out;
+
+}
+
+.pill-checkbox-label > div {
+  width: 50%;
+  height: 100%;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+}
+
+#pill-checkbox:checked + .pill-checkbox-label {
+  background-color: red;
+}
+
+#pill-checkbox:checked + .pill-checkbox-label > div {
+  translate: 100% 0;
+}

@@ -23,6 +23,7 @@ function onInit() {
   $('.canvas-container').hide()
   $('.meme-editor').hide()
 
+
   gCanvas = $('canvas')[0]
   gCtx = gCanvas.getContext('2d')
 
@@ -129,6 +130,9 @@ function addEventListeners() {
     $('.images-container').hide()
     $('.search-container').hide()
     $('.memes-page-container').hide()
+    $('.filtering-container').hide()
+    $('.meme-editor-layout').hide()
+
   })
 
   $('.memes-page').on('click', function(){
@@ -151,12 +155,12 @@ $('.close-btn').on("click",onCloseTogglebtn)
 
 // Close navbar when clicking outside
 $(document).click(function(e) {
-  if (!$(e.target).closest('.main-navbar').length 
-  && !$(e.target).closest('.mobile-toggle-menu').length) {
+  if ($('body').hasClass('menu-opened')) {
+    if (!$(e.target).closest('.main-navbar').length &&
+     !$(e.target).closest('.mobile-toggle-menu').length) {
       $('.main-navbar').hide()
-      // document.body.classList.remove('menu-opened')
       $('body').removeClass('menu-opened')
-
+    }
   }
 })
 
@@ -182,7 +186,8 @@ $('.upload-img').click(function () {
 // window.addEventListener('resize', () => {
 //   if (isMemeEditorVisible()) {
 //       resizeCanvas()
-//       renderCanvasWithContent()
+//       console.log('test')
+//       // renderCanvasWithContent()
 //   }
 // })
 }
@@ -196,17 +201,17 @@ function onCloseTogglebtn() {
   // $('.main-navbar').hide()
 }
 
-// function isMemeEditorVisible() {
-//   const memeEditorSection = $('.meme-editor-layout')
-//   console.log(memeEditorSection.hasClass('main-layout'))
-//   return memeEditorSection.hasClass('main-layout')
-// }
+function isMemeEditorVisible() {
+  const memeEditorSection = $('.meme-editor-layout')
+  console.log(memeEditorSection.hasClass('main-layout'))
+  return memeEditorSection.hasClass('main-layout')
+}
 
 
 // function resizeCanvas() {
 //   const elContainer = $('.canvas-container')
-//   gElCanvas.width = elContainer.offsetWidth
-//   gElCanvas.height = elContainer.offsetHeight
+//   gElCanvas.width = elContainer[0].clientWidth
+//   gElCanvas.height = elContainer[0].clientHeight
 //   renderCanvasWithContent()
 // }
 
@@ -273,7 +278,6 @@ function onTrashBtn() {
 function renderImageOnCanvas(clickedImg) {
   $('.images-container').hide()
   $('.canvas-container').show()
-
 
   gSelecedImg = clickedImg
   onSelectImg(clickedImg)

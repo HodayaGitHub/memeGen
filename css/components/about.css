@@ -9,7 +9,7 @@ p {
 }
 
 .about-container {
-    max-width: 800px;
+    /* max-width: 800px; */
     margin: 0 auto;
     padding: 20px 0 60px;
     display: none;
@@ -35,11 +35,21 @@ a:hover {
 
 
 .memes-page-container {
+    padding-top: 50px;
     font-size: 3rem;
     text-align: center;
     display: none;
 }
 
-.meme-editor-layout.main-layout .about{
+.meme-editor-layout.main-layout .about {
     margin-bottom: 0;
+}
+
+.main-layout .about-container {
+    gap: 0;
+}
+
+.main-layout .about-container p,
+.main-layout .about-container li {
+    font-size: 1.2rem;
 }
