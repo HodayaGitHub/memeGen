@@ -114,8 +114,8 @@ function _saveMemsToStorage() {
 
 
   function filterByKeyword(word) {
-    if (word !== 'all' && gKeywords[word] <= 30) {
-      gKeywords[word] += 1
+    if (word !== 'all' && gKeywordSearchCountMap[word] <= 30) {
+        gKeywordSearchCountMap[word] += 1
     }
   }
   

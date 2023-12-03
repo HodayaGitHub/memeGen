@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    height: 100vh;
+    /* min-height: 100vh; */
     font-family: eurofurence;
     background-color: #e3e3e3;
 }
@@ -32,16 +32,18 @@ body {
 
 
 }
-.nav-container{
+
+.nav-container {
     margin-top: 2%;
 }
+
 .main-header>.nav-container * {
     /* min-height: var(--header-height);  */
 
-    left: 0px;
+    /* left: 0px; */
     /* display: flex; */
     /* align-items: center; */
-    gap: 10%;
+    /* gap: 10%; */
     align-items: flex-end;
 
     font-size: 2rem;
@@ -67,4 +69,11 @@ body {
     text-decoration: none;
     color: black;
     padding-left: 15px;
+}
+
+.lang-btn{
+    max-width: 30%;
+}
+.mobile-toggle-menu {
+    display: none;
 }

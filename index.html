@@ -12,32 +12,36 @@
 
 <body class="main-layout">
 
+    <div class="main-screen"></div>
+
     <header class="main-header main-layout full">
         <div class="nav-container flex">
             <div class="logo">
                 <a class="clean-text" href="index.html">Memes Gen</a>
             </div>
-
+            <button class="mobile-toggle-menu">☰</button>
+            <div class="overlay"></div>
             <nav class="main-navbar flex">
-                <span class="main-nav-list clean-text">
+                <span class="main-nav-list clean-text flex">
                     <a  href="index.html" data-trans="gallery">Gallery</a>
                     <a href="#" class="memes-page" data-trans="memes">Memes</a>
                     <a href="#about" class="about-page" data-trans="about">About</a>
                 </span>
+                <select class="lang-btn" onchange="onSetLang(value)">
+                    <option value="en">En</option>
+                    <option value="he">HE</option>
+                </select>
             </nav>
 
+            </div>
 
-            <select onchange="onSetLang(value)">
-                <option value="en">English</option>
-                <option value="he">עברית</option>
-            </select>
-            <button class="mobile-toggle-menu inactive">☰</button>
-        </div>
+
+        
 
     </header>
 
     
-    <div class="memes-page">
+    <div class="main-layout memes-page">
         <div class="memes-page-container ">
             <p data-trans="noSaved"> There are no saved memes currently</p>
 

@@ -2,6 +2,9 @@
     display: flex;
     justify-content: center;
     cursor: grab;
+    
+    width: 20vw;
+    height: 30vw;
 }
 
 .canvas-container:active {

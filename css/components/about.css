@@ -11,12 +11,12 @@ p {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    display: none;
 }
 
-/* Add scroll-snap-type for a snapping effect */
-.about-container {
+/* .about-container {
     scroll-snap-type: y mandatory;
-}
+} */
 
 .section {
     scroll-snap-align: start;
@@ -36,4 +36,5 @@ a:hover {
 .memes-page-container {
     font-size: 3rem;
     text-align: center;
+    display: none;
 }

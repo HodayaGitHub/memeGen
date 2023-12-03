@@ -12,10 +12,12 @@ $(onInit)
 
 function onInit() {
   gElCanvas = $('.canvas')
-  // console.log('test for jquery')
-  renderImages()
+  createImages()
 
+  renderImages()
   addEventListeners()
+  resizeCanvas()
+
   addTouchMouseListeners()
 
   $('.canvas-container').hide()
@@ -26,15 +28,12 @@ function onInit() {
 
   gCenter = { x: gCanvas.width / 2, y: gCanvas.height / 2 }
 
-  resizeCanvas()
   window.addEventListener('resize', resizeCanvas)
 
   $('.meme-editor-layout').css('cursor', 'pointer')
   renderKeywords()
   $('.about-container').hide()
   $('.memes-page-container').hide()
-
-
 }
 
 function renderImages() {
@@ -150,12 +149,34 @@ function addEventListeners() {
     $('.images-container').hide()
     $('.search-container').hide()
     $('.about-container').hide()
-
-
   })
 
+  window.addEventListener('resize', () => {
+    resizeCanvas()
+    renderCanvasWithContent()
+})
+
+$('.mobile-toggle-menu').click(function(e) {
+  e.stopPropagation()
+  $('.main-navbar').toggle()
+});
+
+// Close navbar when clicking outside
+// $(document).click(function(e) {
+//   if (!$(e.target).closest('.main-navbar').length && !$(e.target).closest('.mobile-toggle-menu').length) {
+//       $('.main-navbar').hide()
+//   }
+// })
 
 }
+
+
+function resizeCanvas() {
+  const elContainer = $('.canvas-container')
+  gElCanvas.width = elContainer.offsetWidth
+  gElCanvas.height = elContainer.offsetHeight
+}
+
 
 function onKeyFillter(event, word) {
   gFillterBy = word

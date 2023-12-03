@@ -13,16 +13,16 @@ function _createImg(id, imgUrl, imgAlt) {
 
 
 function getKeywords(isAllKeys) {
-    if (isAllKeys) return gKeywords
+    if (isAllKeys) return gKeywordSearchCountMap
     else {
-      const { all, funny, animal, akward, happy, angry } = gKeywords
+      const { all, funny, animal, akward, happy, angry } = gKeywordSearchCountMap
       return { all, funny, animal, akward, happy, angry }
     }
 }
 
 function getImages() {
-    if (gFillterBy === 'all') return gImages;
-    return gImages.filter((img) => img.keywords.includes(gFillterBy));
+    if (gFillterBy === 'all') return gImages
+    return gImages.filter((img) => img.keywords.includes(gFillterBy))
   }
 
 

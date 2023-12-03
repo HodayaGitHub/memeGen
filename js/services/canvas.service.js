@@ -1,8 +1,5 @@
 'use strict'
 
-// let gRectX = x - width / 2
-// let gRectY = y - height / 2
-
 function renderEmptyCanvas() {
     gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
     renderImageOnCanvas(gSelecedImg)
@@ -18,8 +15,6 @@ function wrapText(text, x, y, lineHeight, shouldDrawBox) {
         if (shouldDrawBox) {
             drawTextBox(item[1], item[2] + offsetY, gCtx.measureText(item[0]).width, lineHeight)
         }
-        // console.log('x', item[1])
-        // console.log('y', item[2])
         gCtx.fillText(item[0], item[1], item[2] + offsetY + lineHeight / 2)
         gCtx.strokeText(item[0], item[1], item[2] + offsetY + lineHeight / 2)
 
@@ -71,8 +66,6 @@ function wrapWord(ctx, text, x, y, maxWidth, lineHeight) {
             lineArray.push([line.trim(), x, y])
         }
     })
-
-    // console.log(lineArray)
     return lineArray
 }
 
