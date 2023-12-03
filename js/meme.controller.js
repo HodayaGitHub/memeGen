@@ -150,8 +150,7 @@ function addEventListeners() {
     $('.images-container').hide()
     $('.search-container').hide()
     $('.about-container').hide()
-//     $('.main-layout main-layout-container').hide()
-// $('.meme-editor-layout flex main-layout').hide()
+
 
   })
 
@@ -166,13 +165,17 @@ function onKeyFillter(event, word) {
   renderImages()
 }
 
+function onSetLang(lang){
+  setLang(lang)
+}
+
 function renderKeywords() {
   const keywords = getKeywords()
 
   let strHtmls = ''
   Object.entries(keywords).forEach(function ([word, size]) {
     strHtmls += `
-      <li class="keyword" style="font-size: ${size}px;" class="keyword">${word}</li>`
+      <li class="keyword" style="font-size: ${size}px;" data-trans="${word}" class="keyword">${word}</li>`
   })
 
   $('.keywords-container').html(strHtmls)

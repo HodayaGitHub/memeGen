@@ -1,6 +1,7 @@
 html {
     scroll-behavior: smooth;
 }
+
 .main-layout {
     display: grid;
     grid-template-columns:

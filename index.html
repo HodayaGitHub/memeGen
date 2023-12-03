@@ -15,7 +15,7 @@
     <header class="main-header main-layout full">
         <div class="nav-container flex">
             <div class="logo">
-                <a class="clean-text" href="index.html" data-trans="logo">Memes Gen</a>
+                <a class="clean-text" href="index.html">Memes Gen</a>
             </div>
 
             <nav class="main-navbar flex">
@@ -27,7 +27,7 @@
             </nav>
 
 
-            <select class="lang-btn">
+            <select onchange="onSetLang(value)">
                 <option value="en">English</option>
                 <option value="he">עברית</option>
             </select>
@@ -38,8 +38,8 @@
 
     
     <div class="memes-page">
-        <div class="memes-page-container">
-            There are no saved memes currently
+        <div class="memes-page-container ">
+            <p data-trans="noSaved"> There are no saved memes currently</p>
 
         </div>
     </div>
@@ -48,7 +48,7 @@
     <section class="main-layout full filtering-container">
             <div class="search-container flex-row">
                 <div class="search"> 
-                <span>Type a keyword to search: </span>
+                <span data-trans="keywordToSearch">Type a keyword to search: </span>
                 <input class="search-input" name="search" placeholder="Search for a category" autocomplete="off"
                     data-trans="search-placeholder"/>
                 </div>
@@ -155,10 +155,10 @@
                 <img src="img/footer-picture.png"/>
             </div>
             <div class="footer-details">
-                <h1 data-trans="footer-title">
+                <h1 data-trans="footerTitle">
                     Thanks for using my meme generator
                 </h1>
-                <p class="footer-content" data-trans="footer-content">
+                <p class="footer-content" data-trans="footerContent">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid
                     nulla voluptatum sunt commodi quo asperiores porro ex, nam itaque
                     at.
@@ -181,10 +181,11 @@
     </footer>
 
 
-
+    <script src="https://unpkg.com/i18next/dist/umd/i18next.js"></script>
     <script src="lib/jquery/jquery.js"></script>
     <script src="js/services/db.service.js"></script>
     <script src="js/services/storage.service.js"></script>
+    <script src="js/translate.service.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/services/canvas.service.js"></script>
     <script src="js/services/move.element.service.js"></script>

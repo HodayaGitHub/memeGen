@@ -12,8 +12,14 @@ body {
 
 .main-header {
     background-color: #6aa7cf73;
+    padding-bottom: 50px;
 }
 
+.filtering-container {
+    padding-top: 10px;
+    background-color: #9ac8c854;
+    margin-bottom: 40px;
+}
 
 .logo a {
     /* font-family: eurofurence; */
@@ -26,7 +32,9 @@ body {
 
 
 }
-
+.nav-container{
+    margin-top: 2%;
+}
 .main-header>.nav-container * {
     /* min-height: var(--header-height);  */
 
@@ -54,7 +62,9 @@ body {
 
 }
 
+
 .main-header .main-nav-list a {
     text-decoration: none;
     color: black;
+    padding-left: 15px;
 }

@@ -23,11 +23,11 @@ function addMouseListeners() {
     $(gElCanvas).on('mouseup', onUp);
 }
 
-// function addTouchListeners() {
-//     $(gElCanvas).on('touchmove', onMove);
-//     $(gElCanvas).on('touchstart', onDown);
-//     $(gElCanvas).on('touchend', onUp);
-// }
+function addTouchListeners() {
+    $(gElCanvas).on('touchmove', onMove);
+    $(gElCanvas).on('touchstart', onDown);
+    $(gElCanvas).on('touchend', onUp);
+}
 
 
 
