@@ -78,15 +78,12 @@ body.menu-open .main-screen {
         flex-direction: column;
     }
 
-    .main-layout {}
-
     .main-navbar {
         display: none;
         font-size: 1rem;
         position: fixed;
         top: 0;
         right: 0;
-        /* height: 1000px; */
         background-color: rgb(255 255 255 / 90%);
         border-inline-start: 1px solid #ccc;
         width: 50%;
@@ -125,21 +122,9 @@ body.menu-open .main-screen {
     .close-toggle-btn {
         display: block;
         font-size: 2rem;
-        /* margin-bottom: 50px; */
         justify-self: start;
     }
 
-    /* .main-header .main-navbar>* :not(:first-child){ */
-
-    .main-header .main-navbar>* {
-        /* color: red; */
-        width: 100%;
-        display: flex;
-        gap: 15px;
-        flex-direction: column;
-
-
-    }
 
     .main-header .main-navbar button {
         /* justify-content: end; */
@@ -147,21 +132,17 @@ body.menu-open .main-screen {
         float: right;
     }
 
-    /* .main-header .main-nav-list a{ 
-        display: flex;
-        gap: 10px;
-     } */
+  
     .meme-editor-layout.main-layout {
         flex-direction: column;
         justify-content: center;
     }
 
-    .canvas-container {
+    /* .canvas-container {
         width: 20vw;
         height: 80vh;
 
-        /* height:40vh; */
-    }
+    } */
 
     .footer-content {
         font-size: 1.5rem;
@@ -187,13 +168,11 @@ body.menu-open .main-screen {
         justify-content: center;
     }
 
-    .canvas-container {
-        /* width: 20vw;
-        height: 80vh;
-           */
-        /* height:40vh; */
+    /* .canvas-container {
+        width: 30vw;
+        height: 30vh;
     }
-
+ */
 
 }
 
@@ -205,13 +184,11 @@ body.menu-open .main-screen {
         grid-template-columns:
             minmax(20px, 1fr) minmax(auto, var(--m)) minmax(20px, 1fr);
     }
+     .main-header .main-navbar >* :not(.close-btn) {
+        display: flex;
+        align-items: center;
+    } 
 
-
-
-    /* :root {
-        --card-layout-margin: 0px;
-        --card-layout-margin-center: 40px;
-    } */
 
 
 }
@@ -228,13 +205,4 @@ body.menu-open .main-screen {
         grid-template-columns:
             minmax(20px, 1fr) minmax(auto, var(--l)) minmax(20px, 1fr);
     }
-
-    /* .card-layout > * {
-      margin-bottom: 130px;
-    }
-  
-    .card-layout > *:first-child > *:not(.card-image) {
-      margin-right: var(--card-layout-margin);
-      margin-left: var(--card-layout-margin);
-    } */
 }
