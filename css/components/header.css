@@ -76,3 +76,13 @@ body {
 .mobile-toggle-menu {
     display: none;
 }
+
+.lang-he  .search{
+    flex-direction: row-reverse;
+}
+
+
+.search {
+    display: flex;
+    gap: 10px;
+}

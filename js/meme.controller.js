@@ -168,6 +168,8 @@ $('.mobile-toggle-menu').click(function(e) {
 //   }
 // })
 
+
+
 }
 
 
@@ -187,6 +189,8 @@ function onKeyFillter(event, word) {
 }
 
 function onSetLang(lang){
+  $('body').removeClass('lang-en lang-he').addClass('lang-' + lang)
+
   setLang(lang)
 }
 
