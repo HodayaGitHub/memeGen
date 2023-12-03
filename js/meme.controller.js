@@ -143,6 +143,7 @@ function addEventListeners() {
     $('.search-container').hide()
     $('.memes-page-container').hide()
     $('.meme-editor-layout').hide()
+    $('.filtering-container').hide()
   })
 
   $('.memes-page').on('click', function(){
