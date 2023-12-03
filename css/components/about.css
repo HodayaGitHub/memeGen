@@ -53,3 +53,18 @@ a:hover {
 .main-layout .about-container li {
     font-size: 1.2rem;
 }
+
+
+.lang-he .main-layout {
+    text-align: right;
+}
+
+.lang-he .main-layout .about-container > * {
+    margin-bottom: 10px;
+}
+
+.about-clean-list {
+    text-decoration: none;
+    list-style-type: none;
+
+}
