@@ -1,7 +1,7 @@
 # MemeGen - A Memes Generator
 
 ## Overview
-MemeGen is a simple and fun tool for generating memes. This project allows users to create custom memes by combining images and text, providing a humorous and creative outlet. Whether you're looking to express a witty thought, share a joke, or just have some fun, MemeGen is the perfect platform for unleashing your creativity.
+MemeGen is a simple and fun tool powered by Canvas for generating memes. This project allows users to create custom memes by combining images and text, providing a humorous and creative outlet. Whether you're looking to express a witty thought, share a joke, or just have some fun, MemeGen is the perfect platform for unleashing your creativity.
 
 ## Features
 User-friendly Interface: MemeGen provides an intuitive and easy-to-use interface, allowing users to quickly create memes without any hassle.
